@@ -25,7 +25,7 @@ font-normal">
         <!-- </div> -->
         
         <div class="hamburger md:w-[500px] lg:w-[700px] md:h-[96px] 
-        md:flex p-5 lg:p15 lg:mt-8 lg:pr-28">
+        md:flex p-5 lg:p-15 lg:mt-8 lg:pr-28">
             <button class="h-10 w-10 
             text-[var(--white-25)] md:hidden 
             bg-[url(http://space_tourism.test/public/build/images/hamburger.svg)] 
@@ -33,32 +33,32 @@ font-normal">
         </button>
             <nav class="nav md:w-[500px] lg:w-[830px] md:h-[96px] 
             top-0 right-0 absolute md:bg-white/5 md:backdrop-blur-[15px]             
-            flex justify-end items-center p-5 lg:p15 lg:mt-8 lg:pr-28">
-                <ul class="text-[14px] leading-[16px] lg:text[16px] lg:leading-[19px] tracking-[2.36px] lg:tracking[2.7px] 
+            flex justify-end items-center p-5 lg:p-15 lg:mt-8 lg:pr-28">
+                <ul class="text-[14px] leading-[16px] lg:text-[16px] lg:leading-[19px] tracking-[2.36px] lg:tracking-[2.7px] 
                 text-[var(--white-25)] font-barlow uppercase whitespace-nowrap
                 md:flex list-none hidden gap-4">
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'accueil' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('accueil') }}" alt="Accueil">
-                            <span class="hidden opacity-25 lg:inline">00</span> ACCUEIL
+                        <a href="{{ route('accueil', ['locale' => app()->getLocale()]) }}" alt="Accueil">
+                            <span class="hidden opacity-25 lg:inline">00</span> {{ __('messages.home') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'planete' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('planete') }}" alt="Destination">
-                            <span class="hidden opacity-25 lg:inline">01</span> DESTINATION
+                        <a href="{{ route('planete', ['locale' => app()->getLocale()]) }}" alt="Destination">
+                            <span class="hidden opacity-25 lg:inline">01</span> {{ __('messages.destination') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'equipage' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('equipage') }}" alt="Equipage">
-                            <span class="hidden opacity-25 lg:inline">02</span> EQUIPAGE
+                        <a href="{{ route('equipage', ['locale' => app()->getLocale()]) }}" alt="Equipage">
+                            <span class="hidden opacity-25 lg:inline">02</span> {{ __('messages.crew') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'technologie' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('technologie') }}" alt="Technologie">
-                            <span class="hidden opacity-25 lg:inline">03</span> TECHNOLOGIE
+                        <a href="{{ route('technologie', ['locale' => app()->getLocale()]) }}" alt="Technologie">
+                            <span class="hidden opacity-25 lg:inline">03</span> {{ __('messages.technology') }}
                         </a>
                     </li>
                 </ul>

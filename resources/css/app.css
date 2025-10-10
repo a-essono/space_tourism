@@ -88,3 +88,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.p_mess {
+    color: cadetblue;
+    width: auto;
+    height: auto;
+}

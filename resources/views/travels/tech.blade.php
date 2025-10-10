@@ -3,12 +3,13 @@
         bg_tech
     </x-slot:bg>
     <main class="flex-1">
-        <h3 class="text-[16px] leading-[19px] tracking-[2.7px] md:text[20px] md:leading-[23px] md:tracking-[3.38px] 
-        lg:text[28px] lg:leading-[33px] lg:tracking-[4.72] 
+        <h2 class="text-[16px] leading-[19px] tracking-[2.7px] md:text-[20px] md:leading-[23px] md:tracking-[3.38px] 
+        lg:text-[28px] lg:leading-[33px] lg:tracking-[4.72] 
         text-[var(--white-25)] font-barlow uppercase 
         text-center lg:text-start mb-6 m-16">
-            <span>03</span> Lanceur spatial 101
-        </h3>
+            <span class="opacity-25">03</span> {{ __('messages.h2_tech') }}
+        </h2>
+        
         <section class="text-center 
         flex flex-col  justify-center items-center lg:flex-row-reverse lg:justify-around ">
             <section>
@@ -32,26 +33,27 @@
                 </div>
                 <div class="w-full  
                 lg:pl-20 mr-5">
-                    <h1 class="text-[14px] leading-[16px] tracking-[2.36px] md:text[16px] md:leading-[19px] md:tracking-[2.7px] 
+                    <h3 class="text-[14px] leading-[16px] tracking-[2.36px] md:text[16px] md:leading-[19px] md:tracking-[2.7px] 
                     text-[var(--purple-25)] font-barlow uppercase whitespace-nowrap 
                     mt-10 mb-5 md:mt-20 md:mb-10">
-                        La terminologie...
-                    </h1>
-                    <h2 class="text-[56px] md:text-[40px] leading-[64px] lg:text-[100px] lg:leading-[114px] 
-                    text-[var(--white-25)] font-bellefair whitespace-nowrap 
+                        {{ __('messages.h3_tech') }}
+                    </h3>
+                    <h1 class="text-[56px] md:text-[40px] leading-[64px] lg:text-[100px] lg:leading-[114px] 
+                    text-[var(--white-25)] font-bellefair uppercase whitespace-nowrap 
                     mb-6">
-                        Le lanceur
-                    </h2>
-                    <p class="text-[15px] leading-[25px] md:text[16px] md:leading-[28px] lg:text[18px] lg:leading-[32px] 
+                        {{ __('messages.h1_launcher') }}
+                    </h1>
+                    <p class="text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px] 
                     text-[var(--purple-25)] font-barlow whitespace-normal 
                     lg:max-w-[clamp(300px,50vw,700px)] max-w-xl">
-                        Un lanceur ou une fusée porteuse est un véhicule propulsé par fusée utilisé pour transporter une
-                        charge utile
-                        de la surface de la Terre vers l'espace, habituellement vers l'orbite terrestre ou au-delà.
-                        Notre fusée WEB-X est la plus puissante en service. Debout à 150 mètres de hauteur,
-                        elle donne lieu à un impressionnant spectacle sur le pas de tir !
+                        {{ __('messages.p_launcher') }}
                     </p>
                 </div>
             </section>
+            
         </section>
+        <div class="w-full flex justify-end p-5">
+            <x-switch_lang/>
+        </div>
+       
 </x-layout_header>
