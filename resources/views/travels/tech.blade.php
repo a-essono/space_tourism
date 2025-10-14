@@ -52,8 +52,8 @@
             </section>
             
         </section>
-        <div class="w-full flex justify-end p-5">
+        <!-- <div class="w-full flex justify-end p-5"> -->
             <x-switch_lang/>
-        </div>
+        <!-- </div> -->
        
 </x-layout_header>

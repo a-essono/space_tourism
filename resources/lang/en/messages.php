@@ -5,6 +5,8 @@ return [
     'destination' => 'destination',
     'crew' => 'crew',
     'technology' => 'technology',
+    'travels' => 'travels',
+    'planet' => 'planet',
     'h3_home' => 'So you want to travel to',
     'h1_home' => 'The space',
     'p_home' => 'Let\'s be objective: if you want to go into space, you can go into real space, 

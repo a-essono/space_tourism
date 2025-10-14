@@ -2,7 +2,8 @@
     <x-slot:bg>
         bg_planet
     </x-slot:bg>
-    <main class="text-center 
+    <main class="flex-1">
+    <section class="text-center 
     flex-1 flex flex-col justify-center items-center lg:flex-row px-4">
         <section class="w-full max-w-4xl">
             <h2 class="text-[16px] leading-[19px] tracking-[2.7px] md:text-[20px] md:leading-[23px] md:tracking-[3.38px] 
@@ -65,5 +66,8 @@
                 </div>
             </section>
         </section>
+    </section>
+        <?php echo $segment1 =  app()->getLocale();  ?>
+        <x-switch_lang />
     </main>
 </x-layout_header>

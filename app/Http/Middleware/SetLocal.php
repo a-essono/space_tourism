@@ -11,16 +11,16 @@ class SetLocal
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $request->route('locale');
+        $locale = $request->segment(1); // ← récupère le 1er segment de l’URL
 
         if (in_array($locale, ['en', 'fr'])) {
             App::setLocale($locale);
         }
+
         return $next($request);
     }
 }
+

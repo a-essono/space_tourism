@@ -10,21 +10,21 @@
 </head>
 <body class="{{ $bg }} 
 min-w-[349px] overflow-x-auto 
-font-normal">
+font-normal h-[100vh]">
     <header class="header 
-    h-[10vh] px-5 xs:px=0 xs:mr=5 
+    h-[10vh] px-5 xs:mr-5 
     flex items-center justify-between">
         <div class="m-5 lg:mt-24 lg:pl-1.5">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo" class="logo min-w-[48px] min-h-[48px]">
         </div>
-        <!-- <div class="-mb-20"> -->
             <!-- fixed à la place de flex flex1 qui prend toute la taille que lui laisse les autres éléments mais peu mobile -->
-            <div class="h-px w-[21%] 
-            left-[11%] top-16 bg-line 
-            flex flex-1 hidden lg:block z-10 my-4 -mb-15"></div> 
-        <!-- </div> -->
+            <div class="h-px 
+            bg-line 
+            hidden lg:block flex-1 z-10 my-4 -mb-15"></div> 
+
         
-        <div class="hamburger md:w-[500px] lg:w-[700px] md:h-[96px] 
+        <div class="hamburger md:w-[500px] lg:w-[700px] md:h-[96px]
+        shrink-0 
         md:flex p-5 lg:p-15 lg:mt-8 lg:pr-28">
             <button class="h-10 w-10 
             text-[var(--white-25)] md:hidden 
@@ -39,25 +39,25 @@ font-normal">
                 md:flex list-none hidden gap-4">
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'accueil' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('accueil', ['locale' => app()->getLocale()]) }}" alt="Accueil">
+                        <a href="{{ route(app()->getLocale().'.accueil') }}" alt="Accueil">
                             <span class="hidden opacity-25 lg:inline">00</span> {{ __('messages.home') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'planete' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('planete', ['locale' => app()->getLocale()]) }}" alt="Destination">
+                        <a href="{{ route(app()->getLocale().'.planete') }}" alt="Destination">
                             <span class="hidden opacity-25 lg:inline">01</span> {{ __('messages.destination') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'equipage' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('equipage', ['locale' => app()->getLocale()]) }}" alt="Equipage">
+                        <a href="{{ route(app()->getLocale().'.equipage') }}" alt="Equipage">
                             <span class="hidden opacity-25 lg:inline">02</span> {{ __('messages.crew') }}
                         </a>
                     </li>
                     <li class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'technologie' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route('technologie', ['locale' => app()->getLocale()]) }}" alt="Technologie">
+                        <a href="{{ route(app()->getLocale().'.technologie') }}" alt="Technologie">
                             <span class="hidden opacity-25 lg:inline">03</span> {{ __('messages.technology') }}
                         </a>
                     </li>

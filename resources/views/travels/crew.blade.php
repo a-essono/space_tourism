@@ -49,4 +49,5 @@
                 </div>
             </section>
         </section>
+        <x-switch_lang />
 </x-layout_header>

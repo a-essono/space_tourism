@@ -5,6 +5,8 @@ return [
     'destination' => 'destination',
     'crew' => 'equipage',
     'technology' => 'technologie',
+    'planet' => 'planete',
+    'travels' => 'voyages',
     'h3_home' => 'Donc vous voulez voyager dans',
     'h1_home' => 'L\'espace',
     'p_home' => 'Soyons objectifs : si vous voulez aller dans l\'espace, vous pouvez aller véritablement 
