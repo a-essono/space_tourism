@@ -27,20 +27,21 @@ class CreateRouteTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('travels.planet'); // Optionnel mais recommandé
+        $response->assertSee('MOON'); // Doit avoir la même casse que dans les fichiers sources
     }
 
     public function test_all_route()
     {
         $routes = [
-            '/en/travels/index'     => 'travels.index',
-            '/en/travels/crew'      => 'travels.crew',
-            '/en/travels/planet'    => 'travels.planet',
-            '/en/travels/technology'=> 'travels.tech',
-            
-            '/fr/voyages/index'     => 'travels.index',
-            '/fr/voyages/equipage'  => 'travels.crew',
-            '/fr/voyages/planete'   => 'travels.planet',
-            '/fr/voyages/technologie'=> 'travels.tech',
+            '/en/travels/index' => 'travels.index',
+            '/en/travels/crew' => 'travels.crew',
+            '/en/travels/planet' => 'travels.planet',
+            '/en/travels/technology' => 'travels.tech',
+
+            '/fr/voyages/index' => 'travels.index',
+            '/fr/voyages/equipage' => 'travels.crew',
+            '/fr/voyages/planete' => 'travels.planet',
+            '/fr/voyages/technologie' => 'travels.tech',
         ];
 
         foreach ($routes as $url => $view) {

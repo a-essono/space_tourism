@@ -1,11 +1,10 @@
 <?php
-    use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\App;
 
-if (!function_exists('localizedUrlInline')){
-    
+if (!function_exists('localizedUrlInline')) {
+    function localizedUrlInline($targetLocale)
+    {
 
-    function localizedUrlInline($targetLocale) {
-        
         $currentLocale = App::getLocale();
 
         // Charge les traductions actuelles et cibles
@@ -28,8 +27,7 @@ if (!function_exists('localizedUrlInline')){
                 $segments[$index] = $targetTranslations[$key];
             }
         }
-
         return url(implode('/', $segments));
     }
 }
-     
+
