@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nom_fr', 50);
             $table->string('description_fr', 250);
-            $table->smallInteger('distance_fr');
+            $table->mediumInteger('distance_fr');
             $table->tinyInteger('duree_fr');
             $table->string('nom_en', 50);
             $table->string('description_en', 250);
-            $table->smallInteger('distance_en');
+            $table->mediumInteger('distance_en');
             $table->tinyInteger('duree_en');
+            $table->string('image');
             $table->timestamps();
         });
     }
