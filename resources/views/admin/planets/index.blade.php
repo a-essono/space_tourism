@@ -12,7 +12,7 @@
         <div class="flex flex-col w-full">
             <div class="border-b border-gray-200 shadow overflow-x-auto pt-6">
                 <div class="flex justify-end mb-4">
-                    <x-link-button href="{{ route('planetes.creation') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <x-link-button href="{{ route('planetes.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                         Ajouter une planète
                     </x-link-button>
                 </div>
@@ -42,10 +42,10 @@
                                     <x-link-button href="{{ route('planetes.edit', $planet) }}" class="text-yellow-600 hover:text-yellow-400">
                                         Modifier
                                     </x-link-button>
-                                    <x-link-button delete-cursor color="bg-red-600 hover:bg-red-400" onclick="event.preventDefault(); document.getElementById('destroy{{ $planet }}').submit();">
+                                    <x-link-button delete-cursor color="bg-red-600 hover:bg-red-400" onclick="if (confirm('Voulez-vous vraiment supprimer cette planète ?')) {event.preventDefault(); document.getElementById('destroy{{ $planet->id }}').submit();}">
                                         Supprimer
                                     </x-link-button>
-                                    <form id="destroy{{ $planet }}" action="{{ route('planetes.destroy', $planet) }}" method="POST" style="display: none;">
+                                    <form id="destroy{{ $planet->id }}" action="{{ route('planetes.destroy', $planet->id) }}" method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')
                                     </form>

@@ -60,7 +60,7 @@ Route::prefix('fr')
 
 Route::get('admin/planetes', [PlanetController::class, 'index'])->name('planetes.index');
 // Affiche le formulaire de création
-Route::get('admin/planetes/creation', [PlanetController::class, 'create'])->name('planetes.creation');
+Route::get('admin/planetes/creation', [PlanetController::class, 'create'])->name('planetes.create');
 // Enregistre une nouvelle planète
 Route::post('admin/planetes/enregistrement', [PlanetController::class, 'store'])->name('planetes.store');
 // Affiche le formulaire de modification pour une planète spécifique
