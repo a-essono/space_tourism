@@ -2,7 +2,12 @@
     <x-slot:title>
         Liste des planètes
     </x-slot:title>
-
+<!-- Message de réussite -->
+    @if (session()->has('message'))
+        <div class="mt-3 mb-4 list-disc list-inside text-sm text-green-600">
+            {{ session('message') }}
+        </div>
+    @endif
     <div class="container flex justify-center mx-auto relative">
         <div class="flex flex-col w-full">
             <div class="border-b border-gray-200 shadow overflow-x-auto pt-6">
@@ -23,8 +28,8 @@
                     <tbody class="divide-y divide-gray-200">
                         @foreach($planets as $planet)
                             <tr class="whitespace-nowrap">
-                                <td class="px-4 py-4 text-sm text-gray-500">{{ $planet }}</td>
-                                <td class="px-4 py-4 text-sm font-medium text-gray-900">{{ $planet }}</td>
+                                <td class="px-4 py-4 text-sm text-gray-500">{{ $planet->id }}</td>
+                                <td class="px-4 py-4 text-sm font-medium text-gray-900">{{ $planet->nom_fr }}</td>
                                 <td class="px-4 py-4">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $planet ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                                         {{ $planet ? 'Créée' : 'A créer' }}

@@ -91,7 +91,7 @@ class PlanetController extends Controller
     $planete = Planet::findOrFail($id);
     $planete->update($validated);
 
-    return redirect()->route('admin.planets.index')->with('message', 'Planète mise à jour avec succès.');
+    return redirect()->route('planetes.index')->with('message', 'Planète mise à jour avec succès.');
     }
 
     /**
