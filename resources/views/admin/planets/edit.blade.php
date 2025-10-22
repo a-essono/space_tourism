@@ -48,23 +48,23 @@
         <!-- Distance (FR) -->
         <div>
             <x-label for="distance_fr" label="Distance (Français)"/>
-            <input type="number" step="any" id="distance_fr" name="distance_fr" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('distance_fr', $planet->distance_fr) }}" required>
+            <input type="text" step="any" id="distance_fr" name="distance_fr" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('distance_fr', $planet->distance_fr) }}" required>
         </div>
         <!-- Distance (EN) -->
         <div>
             <x-label for="distance_en" label="Distance (Anglais)"/>
-            <input type="number" step="any" id="distance_en" name="distance_en" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('distance_en', $planet->distance_en) }}" required>
+            <input type="text" step="any" id="distance_en" name="distance_en" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('distance_en', $planet->distance_en) }}" required>
         </div>
 
         <!-- Durée (FR) -->
         <div>
             <x-label for="duree_fr_fr" label="Durée (Français)"/>
-            <input type="number" step="any" id="duree_fr" name="duree_fr" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('duree_fr', $planet->duree_fr) }}" required>
+            <input type="text" step="any" id="duree_fr" name="duree_fr" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('duree_fr', $planet->duree_fr) }}" required>
         </div>
         <!-- Durée (EN) -->
         <div>
             <x-label for="duree_en" label="Durée (Français)"/>
-            <input type="number" step="any" id="duree_en" name="duree_en" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('duree_en', $planet->duree_en) }}" required>
+            <input type="text" step="any" id="duree_en" name="duree_en" min="0" class="w-full px-3 py-2 border rounded" value="{{ old('duree_en', $planet->duree_en) }}" required>
         </div>
 
         {{-- Image --}}

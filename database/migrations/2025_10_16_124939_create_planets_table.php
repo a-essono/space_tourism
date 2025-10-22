@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('planets', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_fr', 50);
+            $table->string('nom_fr', 50)->unique();
             $table->string('description_fr', 250);
             $table->mediumInteger('distance_fr');
             $table->tinyInteger('duree_fr');

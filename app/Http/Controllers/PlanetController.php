@@ -43,10 +43,10 @@ class PlanetController extends Controller
             'nom_en' => 'required|string|max:50',
             'description_fr' => 'required|string|max:500',
             'description_en' => 'required|string|max:500',
-            'distance_fr' => 'required|numeric',
-            'distance_en' => 'required|numeric',
-            'duree_fr' => 'required|numeric',
-            'duree_en' => 'required|numeric',
+            'distance_fr' => 'required|string|max:50',
+            'distance_en' => 'required|string|max:50',
+            'duree_fr' => 'required|string|max:50',
+            'duree_en' => 'required|string|max:50',
             'image' => 'required|url|max:100'
         ]);
 
@@ -81,10 +81,10 @@ class PlanetController extends Controller
         'nom_en' => 'required|string|max:50',
         'description_fr' => 'required|string|max:500',
         'description_en' => 'required|string|max:500',
-        'distance_fr' => 'required|numeric',
-        'distance_en' => 'required|numeric',
-        'duree_fr' => 'required|numeric',
-        'duree_en' => 'required|numeric',
+        'distance_fr' => 'required|string|max:50',
+        'distance_en' => 'required|string|max:50',
+        'duree_fr' => 'required|string|max:50',
+        'duree_en' => 'required|string|max:50',
         'image' => 'required|url|max:100'
     ]);
 
