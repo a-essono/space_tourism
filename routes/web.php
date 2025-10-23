@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrewController;
 use App\Http\Controllers\PlanetController;
 // use App\Http\Controllers\TravelController;
 use App\Http\Middleware\SetLocal;
@@ -65,9 +66,15 @@ Route::get('admin/planetes/creation', [PlanetController::class, 'create'])->name
 Route::post('admin/planetes/enregistrement', [PlanetController::class, 'store'])->name('planetes.store');
 // Affiche le formulaire de modification pour une planète spécifique
 Route::get('admin/planetes/{planet}/modification', [PlanetController::class, 'edit'])->where('planet', '[0-9]+')->name('planetes.edit');
-
 // Met à jour les données d'une planète existante
 Route::put('admin/planetes/{planet}', [PlanetController::class, 'update'])->where('planet', '[0-9]+')->name('planetes.update');
-
 // Supprime une planète existante
 Route::delete('admin/planetes/{planet}/suppression', [PlanetController::class, 'destroy'])->where('planet', '[0-9]+')->name('planetes.destroy');
+
+Route::get('admin/equipes', [CrewController::class, 'index'])->name('equipes.index');
+Route::get('admin/equipes/creation', [CrewController::class, 'create'])->name('equipes.create');
+Route::post('admin/equipes/enregistrement', [CrewController::class, 'store'])->name('equipes.store');
+Route::get('admin/equipes/{crew}/modification', [CrewController::class, 'edit'])->where('crew', '[0-9]+')->name('equipes.edit');
+Route::put('admin/equipes/{crew}', [CrewController::class, 'update'])->where('crew', '[0-9]+')->name('equipes.update');
+// Supprime une planète existante
+Route::delete('admin/equipes/{crew}/suppression', [CrewController::class, 'destroy'])->where('crew', '[0-9]+')->name('equipes.destroy');

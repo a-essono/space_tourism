@@ -87,7 +87,7 @@ class PlanetController extends Controller
         'duree_en' => 'required|string|max:50',
         'image' => 'required|url|max:100'
     ]);
-
+    // Cette ligne (91) n'aurait pas été nécessaire avec un update(Request $request, Planet $planet) recommandé
     $planete = Planet::findOrFail($id);
     $planete->update($validated);
 
