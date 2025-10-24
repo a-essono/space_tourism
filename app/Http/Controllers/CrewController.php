@@ -35,7 +35,7 @@ class CrewController extends Controller
             'description_fr' => 'required|string|max:500',
             'description_en' => 'required|string|max:500',
             'nom' => 'required|string|max:50',
-            'image' => 'required|url|max:50'
+            'image' => 'required|url|max:100'
         ]);
 
         Crew::create($validated);
@@ -56,7 +56,7 @@ class CrewController extends Controller
      */
     public function edit(Crew $crew)
     {
-        return view('admin.crews.edit', compact('crews'));
+        return view('admin.crews.edit', compact('crew'));
     }
 
     /**

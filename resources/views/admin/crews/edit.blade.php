@@ -28,33 +28,33 @@
         <div>
             <x-label for="role_fr" label="Role (Français)" />
             <input type="text" id="role_fr" name="role_fr" maxlength="50" class="w-full px-3 py-2 border rounded"
-                value="{{ old('role_fr') }}" required>
+                value="{{ old('role_fr', $crew->role_fr) }}" required>
         </div>
         <!-- Rôle (EN) -->
         <div>
             <x-label for="role_en" label="Role (Anglais)" />
             <input type="text" id="role_en" name="role_en" maxlength="50" class="w-full px-3 py-2 border rounded"
-                value="{{ old('role_en') }}" required>
+                value="{{ old('role_en', $crew->role_en) }}" required>
         </div>
 
         <!-- Description (FR) -->
         <div>
             <x-label for="description_fr" label="Description (Français)" />
             <textarea id="description_fr" name="description_fr" maxlength="500" class="w-full px-3 py-2 border rounded"
-                required>{{ old('description_fr') }}</textarea>
+                required>{{ old('description_fr', $crew->description_fr) }}</textarea>
         </div>
         <!-- Description (EN) -->
         <div>
             <x-label for="description_en" label="Description (Anglais)" />
             <textarea id="description_en" name="description_en" maxlength="500" class="w-full px-3 py-2 border rounded"
-                required>{{ old('description_en') }}</textarea>
+                required>{{ old('description_en', $crew->description_en) }}</textarea>
         </div>
 
         <!-- Nom -->
         <div>
             <x-label for="nom" label="Nom (Anglais)" />
             <input type="text" id="nom" name="nom" maxlength="50" class="w-full px-3 py-2 border rounded"
-                value="{{ old('nom') }}" required>
+                value="{{ old('nom', $crew->nom) }}" required>
         </div>
 
         {{-- Image --}}
