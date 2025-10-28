@@ -70,7 +70,7 @@ return [
     'distance_titan' => '1,6 Tm',
     'Duration_titan' => '7 ans',
     'p_titan' => 'La seule lune connue pour avoir une atmosphère dense autre que la Terre, 
-                    Titan est comme une maison loin de la laison (et juste quelques centaines de degrés plus froid !). 
+                    Titan est comme une maison loin de la maison (et juste quelques centaines de degrés plus froid !). 
                     En bonus, vous pouvez contemplez des vues saisissantes des anneaux de Saturne.',
                     
     'h1_launcher' => 'Le lanceur',

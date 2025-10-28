@@ -58,7 +58,7 @@ return [
     'p_mars' => 'Don’t forget your walking / rambling / hiking boots. You will need them for climbing Olympus’ mountain, 
                     the highest planetary mountain in our solar system. It is two and a half times the size of Mount Everest.',
 
-    'h1_europe' => 'Europe',
+    'h1_europe' => 'Europa',
     'distance_europe' => '628 Gm',
     'duration_europe' => '3 years',
     'p_europe' => 'The smallest of the four Galilean moons in orbit around Jupiter, Europa is the winter lover’s dream.  

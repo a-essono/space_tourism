@@ -11,9 +11,21 @@ class Crew extends Model
     use HasFactory;
     // Liste blanche pour éviter les failles de type de Mass Assignment
     protected $fillable = [
-        'role_fr', 'role_en',
-        'description_fr', 'description_en',
+        'role_fr',
+        'role_en',
+        'description_fr',
+        'description_en',
         'nom',
         'image'
     ];
+
+    public function getNomSplitAttribute()
+    {
+        $parts = explode(' ', $this->nom);
+        return [
+            'prenom' => $parts[0] ?? '',
+            'nom' => $parts[1] ?? '',
+        ];
+    }
+
 }

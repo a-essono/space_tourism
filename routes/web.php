@@ -5,6 +5,7 @@ use App\Http\Controllers\PlanetController;
 // use App\Http\Controllers\TravelController;
 use App\Http\Controllers\TechnologyController;
 use App\Http\Middleware\SetLocal;
+use App\Models\technology;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,17 +23,11 @@ Route::prefix('en')
             return view('travels/index');
         })->name('accueil');
 
-        Route::get('/travels/crew', function () {
-            return view('travels/crew');
-        })->name('equipage');
+        Route::get('/travels/crew/{crew}', [CrewController::class, 'show'])->name('equipage');
 
-        Route::get('/travels/planet', function () {
-            return view('travels/planet');
-        })->name('planete');
+        Route::get('/travels/planet/{planet}', [PlanetController::class, 'show'])->name('planete');
 
-        Route::get('/travels/technology', function () {
-            return view('travels/tech');
-        })->name('technologie');
+        Route::get('/travels/technology/{technology}', [TechnologyController::class, 'show'])->name('technologie');
     });
 
 // // Groupe français (URL traduite)
@@ -44,17 +39,11 @@ Route::prefix('fr')
             return view('travels/index');
         })->name('accueil');
 
-        Route::get('/voyages/equipage', function () {
-            return view('travels/crew');
-        })->name('equipage');
+        Route::get('/voyages/equipage/{crew}', [CrewController::class, 'show'])->name('equipage');
 
-        Route::get('/voyages/planete', function () {
-            return view('travels/planet');
-        })->name('planete');
+        Route::get('/voyages/planete/{planet}', [PlanetController::class, 'show'])->name('planete');
 
-        Route::get('/voyages/technologie', function () {
-            return view('travels/tech');
-        })->name('technologie');
+        Route::get('/voyages/technologie/{technology}', [TechnologyController::class, 'show'])->name('technologie');
     });
 
 // Route Test planet.blade.php avec $name pour paramètre de la fct° publicIndex($name)

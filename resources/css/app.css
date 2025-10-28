@@ -94,3 +94,9 @@
     width: auto;
     height: auto;
 }
+
+@layer utilities {
+  .after-empty::after {
+    content: "";
+  }
+}

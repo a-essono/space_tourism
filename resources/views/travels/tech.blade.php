@@ -28,7 +28,7 @@
                     <ul class="text-[14px] leading-[16px] tracking-[2.36px] md:text[16px] md:leading-[19px] md:tracking-[2.7px] 
                     text-[var(--white-25)] uppercase whitespace-nowrap 
                     flex lg:block lg:-mt-22">
-                        <x-list_tech/>
+                        <x-list_tech :technologies="$technologies"/>
                     </ul>
                 </div>
                 <div class="w-full  
@@ -41,12 +41,12 @@
                     <h1 class="text-[56px] md:text-[40px] leading-[64px] lg:text-[100px] lg:leading-[114px] 
                     text-[var(--white-25)] font-bellefair uppercase whitespace-nowrap 
                     mb-6">
-                        {{ __('messages.h1_launcher') }}
+                        {{ $technology->{'nom_' . app()->getLocale()} }}
                     </h1>
                     <p class="text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px] 
                     text-[var(--purple-25)] font-barlow whitespace-normal 
                     lg:max-w-[clamp(300px,50vw,700px)] max-w-xl">
-                        {{ __('messages.p_launcher') }}
+                        {{ $technology->{'description_' . app()->getLocale()} }}
                     </p>
                 </div>
             </section>

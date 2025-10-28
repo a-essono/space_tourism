@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Crew;
 use Illuminate\Http\Request;
-use App\Models\technology;
+use App\Models\Technology;
 class TechnologyController extends Controller
 {
     /**
@@ -12,7 +12,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $technologies = technology::all();
+        $technologies = Technology::all();
         return view('admin.technologies.index', compact('technologies'));
     }
 
@@ -37,7 +37,7 @@ class TechnologyController extends Controller
             'image' => 'required|url|max:100'
         ]);
 
-        technology::create($validated);
+        Technology::create($validated);
 
         return redirect()->route('technologies.index')->with('message', 'Technologie déployée');
     }
@@ -45,15 +45,17 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(technology $technology)
+    public function show(Technology $technology)
     {
-        return view('travels.tech', compact('technology'));
+
+        $technologies = Technology::query()->orderBy('id', )->get('id');
+        return view('travels.tech', compact('technology', 'technologies'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(technology $technology)
+    public function edit(Technology $technology)
     {
         return view('admin.technologies.edit', compact('technology'));
     }
@@ -61,7 +63,7 @@ class TechnologyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, technology $technology)
+    public function update(Request $request, Technology $technology)
     {
         $validated = $request->validate([
             'nom_fr' => 'required|string|max:50',
@@ -79,7 +81,7 @@ class TechnologyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(technology $technology)
+    public function destroy(Technology $technology)
     {
         $technology->delete();
         return redirect()->route('technologies.index')->with('message', 'Technologie détruite avec succès');

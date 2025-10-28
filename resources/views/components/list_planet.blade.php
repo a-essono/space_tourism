@@ -1,27 +1,9 @@
-<li>
-    <a href="{{ route(app()->getLocale().'.planete') }}"
-        class="pb-1 border-b-2 border-transparent transition
-        {{ Route::currentRouteName() === 'planete' ? 'border-white' : 'hover:border-white' }} ">
-        LUNE
-    </a>
-</li>
-<li> <!-- Definir la bonne CurrentRouteName -->
-    <a href="{{ route(app()->getLocale().'.planete') }}" class="pb-1 border-b-2 border-transparent transition
-        {{ Route::currentRouteName() === '' ? 'border-white' : 'hover:border-white' }} ">
-        EUROPA
-    </a>
-</li>
-<li> <!-- Definir la bonne CurrentRouteName -->
-    <a href="{{ route(app()->getLocale().'.planete') }}"
-        class="pb-1 border-b-2 border-transparent transition
-        {{ Route::currentRouteName() === 'border-white' ? 'hover:border-white' : 'hover:border-white' }} ">
-        MARS
-    </a>
-</li>
-<li> <!-- Definir la bonne CurrentRouteName }} -->
-    <a href="{{ route(app()->getLocale().'.planete') }}"
-        class="pb-1 border-b-2 border-transparent transition
-        {{ Route::currentRouteName() === 'border-white' ? 'hover:border-white' : 'hover:border-white' }} ">
-        TITAN
-    </a>
-</li>
+@foreach ($planets as $p)
+    <li>
+        <a href="{{ route(app()->getLocale() . '.planete', [$p->id]) }}" class="pb-1 border-b-2 border-transparent transition
+            {{ Route::currentRouteName() === app()->getLocale() . '.planete' && request()->route('planet')->id == $p->id ? 'border-white' : 'hover:border-white' }} ">
+            {{ $p->{'nom_' . app()->getLocale()} }}
+        </a>
+    </li>
+@endforeach
+

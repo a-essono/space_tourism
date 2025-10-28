@@ -48,7 +48,8 @@ class CrewController extends Controller
      */
     public function show(Crew $crew)
     {
-        return view('travels.crew', compact('crew'));
+        $crews = Crew::query()->orderBy('id')->get();
+        return view('travels.crew', compact('crew', 'crews'));
     }
 
     /**

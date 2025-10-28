@@ -60,7 +60,8 @@ class PlanetController extends Controller
      */
     public function show(Planet $planet)
     {
-        return view('travels.planet', compact('planet'));
+        $planets = Planet::query()->orderBy('id')->get();
+        return view('travels.planet', compact('planet', 'planets'));
     }
 
     /**

@@ -50,7 +50,7 @@
 
         <!-- Nom -->
         <div>
-            <x-label for="nom" label="Nom (Anglais)" />
+            <x-label for="nom" label="Nom" />
             <input type="text" id="nom" name="nom" maxlength="50" class="w-full px-3 py-2 border rounded"
                 value="{{ old('nom') }}" required>
         </div>
