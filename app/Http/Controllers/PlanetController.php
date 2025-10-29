@@ -51,7 +51,7 @@ class PlanetController extends Controller
         ]);
 
         Planet::create($validated);
-
+        
         return redirect()->route('planetes.index')->with('message', 'Planète créée');
     }
 

@@ -15,7 +15,7 @@
             <section>
                 <div class="w-screen h-[300px] lg:w-[515px] lg:h-[527px] 
                 overflow-hidden">
-                    <img src="{{ asset('build/images/soyuz1.jpg') }}" alt="Lancement Soyouz"
+                    <img src="{{ $technology->image }}" alt="{{$technology->{'nom_' . app()->getLocale()} }}"
                         class="w-full h-full 
                         object-cover object-[center_80%] lg:object-[center]" />
                 </div>
