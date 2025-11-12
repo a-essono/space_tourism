@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { viteStaticCopy } from 'vite-plugin-static-copy'; // ✅ Important
 
 export default defineConfig({
     plugins: [
@@ -12,7 +12,7 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: ['resources/images/logo.png', 'resources/images/hamburger.svg', 
+                    src: ['resources/images/logo.png', 'resources/images/hamburger.svg',
                         'resources/images/moon.png', 'resources/images/commander.png',
                         'resources/images/soyuz1.jpg'],
                     dest: 'images'
@@ -21,4 +21,14 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    // resolve: {
+    //     // exemple d'alias import Example from '@/components/Example.js';
+    //     alias: {
+    //         '@': path.resolve(__dirname, 'resources/js'),
+    //     },
+    // },
+    // server: {
+    //     host: 'localhost',
+    //     port: 5173,
+    // },
 });

@@ -1,18 +1,34 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CrewController;
 use App\Http\Controllers\PlanetController;
-// use App\Http\Controllers\TravelController;
 use App\Http\Controllers\TechnologyController;
 use App\Http\Middleware\SetLocal;
 use App\Models\technology;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Route Breeze
+ **/
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::resource('travels', TravelController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/**
+ * Route::resource('travels', TravelController::class);
+ **/
 
 // Groupe anglais
 Route::prefix('en')
@@ -30,7 +46,7 @@ Route::prefix('en')
         Route::get('/travels/technology/{technology}', [TechnologyController::class, 'show'])->name('technologie');
     });
 
-// // Groupe français (URL traduite)
+// Groupe français (URL traduite)
 Route::prefix('fr')
     ->middleware(SetLocal::class)
     ->name('fr.')
@@ -46,11 +62,17 @@ Route::prefix('fr')
         Route::get('/voyages/technologie/{technology}', [TechnologyController::class, 'show'])->name('technologie');
     });
 
-// Route Test planet.blade.php avec $name pour paramètre de la fct° publicIndex($name)
-// Route::get('/planet/{name}', [PlanetController::class, 'publicIndex']);
+/**
+ * Route Breeze du fichier auth.php
+ **/
+require __DIR__.'/auth.php';
 
 /**
- * PLANET
+ * Route Admin
+ **/
+
+/**
+ * Route Admin PLANET
  **/
 Route::get('admin/planetes', [PlanetController::class, 'index'])->name('planetes.index');
 // Affiche le formulaire de création
@@ -65,7 +87,7 @@ Route::put('admin/planetes/{planet}', [PlanetController::class, 'update'])->wher
 Route::delete('admin/planetes/{planet}/suppression', [PlanetController::class, 'destroy'])->where('planet', '[0-9]+')->name('planetes.destroy');
 
 /**
- * CREW
+ * Route Admin CREW
  **/
 Route::get('admin/equipes', [CrewController::class, 'index'])->name('equipes.index');
 Route::get('admin/equipes/creation', [CrewController::class, 'create'])->name('equipes.create');
@@ -76,7 +98,7 @@ Route::put('admin/equipes/{crew}', [CrewController::class, 'update'])->where('cr
 Route::delete('admin/equipes/{crew}/suppression', [CrewController::class, 'destroy'])->where('crew', '[0-9]+')->name('equipes.destroy');
 
 /**
- * TECH
+ * Route Admin TECH
  **/
 Route::get('admin/technologies', [TechnologyController::class, 'index'])->name('technologies.index');
 Route::get('admin/technologies/creation', [TechnologyController::class, 'create'])->name('technologies.create');
