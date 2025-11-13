@@ -11,8 +11,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('planets', function (Blueprint $table) {
-            $table->string('description_fr', 500)->change();
-            $table->string('description_en', 500)->change();
+            $table->text('description_fr')->change();
+            $table->text('description_en')->change();
         });
     }
 
@@ -21,9 +21,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('planets', function (Blueprint $table) {
-            $table->string('description_fr', 255)->change();
-            $table->string('description_en', 255)->change();
-        });
+        
     }
 };

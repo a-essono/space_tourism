@@ -100,8 +100,8 @@ class PlanetController extends Controller
      */
     public function destroy(Planet $planet)
     {
-        var_dump('Je suis dans destroy');
+       
         $planet->delete();
-        return redirect()->route('planetes.index')->with('message', 'Planète détruite avec succès.');
+        return redirect()->route('admin.planetes.index')->with('message', 'Planète détruite avec succès.');
     }
 }

@@ -68,9 +68,23 @@ Route::prefix('fr')
 require __DIR__.'/auth.php';
 
 /**
+ * Tableau de bord principal
+ **/
+Route::get('/dashboard', function () {
+    return view('dashboard', [
+        'planetCount' => \App\Models\Planet::count(),
+        'crewCount' => \App\Models\Crew::count(),
+        'techCount' => \App\Models\Technology::count(),
+    ]);
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+/**
  * Route Admin
  **/
-
+Route::prefix('dashboard')
+->name('admin.')
+->middleware(['auth', 'verified'])
+->group(function () {
 /**
  * Route Admin PLANET
  **/
@@ -107,3 +121,8 @@ Route::get('admin/technologies/{technology}/modification', [TechnologyController
 Route::put('admin/technologies/{technology}', [TechnologyController::class, 'update'])->where('technology', '[0-9]+')->name('technologies.update');
 // Supprime une technologie existante
 Route::delete('admin/technologies/{technology}', [TechnologyController::class, 'destroy'])->where('technology', '[0-9]+')->name('technologies.destroy');
+});
+
+
+
+

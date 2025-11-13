@@ -24,11 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('planets', function (Blueprint $table) {
-            $table->mediumInteger('distance_fr')->change();
-            $table->tinyInteger('duree_fr')->change();
-            $table->mediumInteger('distance_en')->change();
-            $table->tinyInteger('duree_en')->change();
-        });
+       
     }
 };

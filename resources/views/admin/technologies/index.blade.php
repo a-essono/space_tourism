@@ -1,7 +1,7 @@
-<x-layout>
-    <x-slot:title>
+<x-app-layout>
+    <x-slot name="header">
         Liste des technologies
-    </x-slot:title>
+    </x-slot>
 <!-- Message de réussite -->
     @if (session()->has('message'))
         <div class="mt-3 mb-4 list-disc list-inside text-sm text-green-600">
@@ -12,7 +12,7 @@
         <div class="flex flex-col w-full">
             <div class="border-b border-gray-200 shadow overflow-x-auto pt-6">
                 <div class="flex justify-end mb-4">
-                    <x-link-button href="{{ route('technologies.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <x-link-button href="{{ route('admin.technologies.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                         Ajouter une technologie
                     </x-link-button>
                 </div>
@@ -36,16 +36,16 @@
                                     </span>
                                 </td>
                                 <td class="px-4 py-4 flex justify-center space-x-2">
-                                    <x-link-button href="{{ route('fr.technologie', $technology) }}" class="text-blue-600 hover:text-blue-400">
+                                    <x-link-button href="{{ route('fr.technologie', $technology) }}" class="text-blue-600 hover:text-blue-400 hover:bg-gray-100">
                                         Voir
                                     </x-link-button>
-                                    <x-link-button href="{{ route('technologies.edit', $technology) }}" class="text-yellow-600 hover:text-yellow-400">
+                                    <x-link-button href="{{ route('admin.technologies.edit', $technology) }}" class="text-yellow-600 hover:text-yellow-400 hover:bg-gray-100">
                                         Modifier
                                     </x-link-button>
-                                    <x-link-button delete-cursor color="bg-red-600 hover:bg-red-400" onclick="if (confirm('Voulez-vous vraiment supprimer cette planète ?')) {event.preventDefault(); document.getElementById('destroy{{ $technology->id }}').submit();}">
+                                    <x-link-button delete-cursor color="bg-white  hover:bg-red-400 text-red-600 hover:text-white" onclick="if (confirm('Voulez-vous vraiment supprimer cette technologie ?')) {event.preventDefault(); document.getElementById('destroy{{ $technology->id }}').submit();}">
                                         Supprimer
                                     </x-link-button>
-                                    <form id="destroy{{ $technology->id }}" action="{{ route('technologies.destroy', $technology->id) }}" method="POST" style="display: none;">
+                                    <form id="destroy{{ $technology->id }}" action="{{ route('admin.technologies.destroy', $technology->id) }}" method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')
                                     </form>
@@ -57,4 +57,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-app-layout>
