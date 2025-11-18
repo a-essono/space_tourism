@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CrewController;
 use App\Http\Controllers\PlanetController;
 use App\Http\Controllers\TechnologyController;
+use App\Http\Controllers\Admin\UserRoleController;
 use App\Http\Middleware\SetLocal;
 use App\Models\technology;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,12 @@ Route::prefix('dashboard')
 ->middleware(['auth', 'verified'])
 ->group(function () {
 /**
+ * Route Admin HOME
+ **/
+// Page d'accueil admin pour la gestion des listes
+Route::get('/home', [\App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home');
+
+/**
  * Route Admin PLANET
  **/
 Route::get('admin/planetes', [PlanetController::class, 'index'])->name('planetes.index');
@@ -122,7 +129,5 @@ Route::put('admin/technologies/{technology}', [TechnologyController::class, 'upd
 // Supprime une technologie existante
 Route::delete('admin/technologies/{technology}', [TechnologyController::class, 'destroy'])->where('technology', '[0-9]+')->name('technologies.destroy');
 });
-
-
 
 

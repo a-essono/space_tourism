@@ -12,6 +12,8 @@ class CrewController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Crew::class);
+
         $crews = Crew::all();
         return view('admin.crews.index', compact('crews'));
     }
@@ -21,6 +23,8 @@ class CrewController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Crew::class);
+
         return view('admin.crews.create');
     }
 
@@ -29,6 +33,8 @@ class CrewController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Crew::class);
+
         $validated = $request->validate([
             'role_fr' => 'required|string|max:50',
             'role_en' => 'required|string|max:50',
@@ -57,6 +63,8 @@ class CrewController extends Controller
      */
     public function edit(Crew $crew)
     {
+        $this->authorize('update', $crew);
+
         return view('admin.crews.edit', compact('crew'));
     }
 
@@ -65,6 +73,8 @@ class CrewController extends Controller
      */
     public function update(Request $request, Crew $crew)
     {
+        $this->authorize('update', $crew);
+
         $validated = $request->validate([
             'role_fr' => 'required|string|max:50',
             'role_en' => 'required|string|max:50',
@@ -84,6 +94,8 @@ class CrewController extends Controller
      */
     public function destroy(Crew $crew)
     {
+        $this->authorize('delete', $crew);
+
         $crew->delete();
         return redirect()->route('equipes.index')->with('message', 'Équipe détruites avec succès');
     }

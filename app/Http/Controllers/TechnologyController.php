@@ -12,6 +12,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Technology::class);
+
         $technologies = Technology::all();
         return view('admin.technologies.index', compact('technologies'));
     }
@@ -21,6 +23,8 @@ class TechnologyController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Technology::class);
+
         return view('admin.technologies.create');
     }
 
@@ -29,6 +33,8 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Technology::class);
+
         $validated = $request->validate([
             'nom_fr' => 'required|string|max:50',
             'nom_en' => 'required|string|max:50',
@@ -57,6 +63,8 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
+        $this->authorize('update', $technology);
+
         return view('admin.technologies.edit', compact('technology'));
     }
 
@@ -65,6 +73,8 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
+        $this->authorize('update', $technology);
+
         $validated = $request->validate([
             'nom_fr' => 'required|string|max:50',
             'nom_en' => 'required|string|max:50',
@@ -83,6 +93,8 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+        $this->authorize('delete', $technology);
+        
         $technology->delete();
         return redirect()->route('technologies.index')->with('message', 'Technologie détruite avec succès');
     }

@@ -13,7 +13,7 @@
             <div class="border-b border-gray-200 shadow overflow-x-auto pt-6">
                 <div class="flex justify-end mb-4">
                     <x-link-button href="{{ route('admin.equipes.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                        Ajouter un menbre
+                        Ajouter un membre
                     </x-link-button>
                 </div>
                 <table class="min-w-full bg-white">

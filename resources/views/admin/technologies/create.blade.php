@@ -9,7 +9,7 @@
             {{ session('message') }}
         </div>
     @endif
-    <form action="{{ route('technologies.store') }}" method="post">
+    <form action="{{ route('admin.technologies.store') }}" method="post">
         @csrf
         <!-- Nom (FR) -->
         <div>

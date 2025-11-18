@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Planet;
 
 class PlanetController extends Controller
 {
     public function index()
     {
+        $this->authorize('viewAny', Planet::class);
+
         $planets = Planet::all();
         return view('admin.planets.index', compact('planets'));
-
-        // Test planet.blade.php avec $name pour paramètre de la fct° publicIndex($name)
-        // $planets = [
-        //     'name' => $name,
-        //     'image' => '/images/moon_space.jpg',
-        // ];
-
-        // return view('planets', compact('planets'));
     }
 
     /**
@@ -26,6 +21,8 @@ class PlanetController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Planet::class);
+
         return view('admin.planets.create');
     }
 
@@ -34,9 +31,7 @@ class PlanetController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump('je suis dans le controleur');
-        // exit;
-        // dd($request->all());
+        $this->authorize('create', Planet::class);
 
         $validated = $request->validate([
             'nom_fr' => 'required|string|max:50',
@@ -51,7 +46,7 @@ class PlanetController extends Controller
         ]);
 
         Planet::create($validated);
-        
+
         return redirect()->route('planetes.index')->with('message', 'Planète créée');
     }
 
@@ -69,6 +64,8 @@ class PlanetController extends Controller
      */
     public function edit(Planet $planet)
     {
+        $this->authorize('update', $planet);
+
         return view('admin.planets.edit', compact('planet'));
     }
 
@@ -77,22 +74,26 @@ class PlanetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validated = $request->validate([
-        'nom_fr' => 'required|string|max:50',
-        'nom_en' => 'required|string|max:50',
-        'description_fr' => 'required|string|max:500',
-        'description_en' => 'required|string|max:500',
-        'distance_fr' => 'required|string|max:50',
-        'distance_en' => 'required|string|max:50',
-        'duree_fr' => 'required|string|max:50',
-        'duree_en' => 'required|string|max:50',
-        'image' => 'required|url|max:100'
-    ]);
-    // Cette ligne (91) n'aurait pas été nécessaire avec un update(Request $request, Planet $planet) recommandé
-    $planete = Planet::findOrFail($id);
-    $planete->update($validated);
+        // Cette ligne (91) n'aurait pas été nécessaire avec un update(Request $request, Planet $planet) recommandé
+        $planete = Planet::findOrFail($id);
 
-    return redirect()->route('planetes.index')->with('message', 'Planète mise à jour avec succès.');
+        $this->authorize('update', $planete);
+
+        $validated = $request->validate([
+            'nom_fr' => 'required|string|max:50',
+            'nom_en' => 'required|string|max:50',
+            'description_fr' => 'required|string|max:500',
+            'description_en' => 'required|string|max:500',
+            'distance_fr' => 'required|string|max:50',
+            'distance_en' => 'required|string|max:50',
+            'duree_fr' => 'required|string|max:50',
+            'duree_en' => 'required|string|max:50',
+            'image' => 'required|url|max:100'
+        ]);
+
+        $planete->update($validated);
+
+        return redirect()->route('planetes.index')->with('message', 'Planète mise à jour avec succès.');
     }
 
     /**
@@ -100,7 +101,8 @@ class PlanetController extends Controller
      */
     public function destroy(Planet $planet)
     {
-       
+        $this->authorize('delete', $planet);
+
         $planet->delete();
         return redirect()->route('admin.planetes.index')->with('message', 'Planète détruite avec succès.');
     }

@@ -9,6 +9,15 @@
             {{ session('message') }}
         </div>
     @endif
+    <x-slot:title>
+        Modifier la technologie : {{ $technology->nom_fr }}
+    </x-slot:title>
+
+    @if ($technology)
+        <a href="{{ route('fr.technologie', $technology) }}" class="underline text-gray-700" target="_blank" rel="noopener">
+            Voir en public ↗
+        </a>
+    @endif
 
     @if ($errors->any())
         <div class="mt-3 mb-4 list-disc list-inside text-sm text-green-600">
@@ -20,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('technologies.update', $technology->id) }}" method="POST">
+    <form action="{{ route('admin.technologies.update', $technology->id) }}" method="POST">
         @csrf
         @method('PUT')
 

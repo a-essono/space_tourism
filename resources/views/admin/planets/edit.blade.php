@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form action="{{ route('planetes.update', $planet->id) }}" method="POST">
+    <form action="{{ route('admin.planetes.update', $planet->id) }}" method="POST">
         @csrf
         @method('PUT')
         <!-- Nom (FR) -->

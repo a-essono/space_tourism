@@ -20,7 +20,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('equipes.store') }}" method="post">
+    <form action="{{ route('admin.equipes.store') }}" method="post">
         @csrf
         <!-- Rôle (FR) -->
         <div>
