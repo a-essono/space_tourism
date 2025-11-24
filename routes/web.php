@@ -31,37 +31,38 @@ Route::middleware('auth')->group(function () {
  * Route::resource('travels', TravelController::class);
  **/
 
-// Groupe anglais
-Route::prefix('en')
-    ->middleware(SetLocal::class)
-    ->name('en.')
-    ->group(function () {
-        Route::get('/travels/index', function () {
-            return view('travels/index');
-        })->name('accueil');
+$languages = [
+    'en' => [
+        'prefix' => 'travels',
+        'names' => 'en.',
+    ],
+    'fr' =>[
+        'prefix' => 'voyages',
+        'names' => 'fr.',
+    ],
+];
 
-        Route::get('/travels/crew/{crew}', [CrewController::class, 'show'])->name('equipage');
+foreach ($languages as $locale => $config) {
+    Route::prefix($locale)
+        ->middleware(SetLocal::class)
+        ->name($config['names'])
+        ->group(function () use ($config) {
+            Route::prefix($config['prefix'])->group(function () {
+               Route::get('/index', function () {
+                    return view('travels/index');
+                })->name('accueil'); 
 
-        Route::get('/travels/planet/{planet}', [PlanetController::class, 'show'])->name('planete');
+                Route::get('/crew/{crew}', [CrewController::class, 'show'])
+                    ->name('equipage');
 
-        Route::get('/travels/technology/{technology}', [TechnologyController::class, 'show'])->name('technologie');
-    });
+                Route::get('/planet/{planet}', [PlanetController::class, 'show'])
+                    ->name('planete');
 
-// Groupe français (URL traduite)
-Route::prefix('fr')
-    ->middleware(SetLocal::class)
-    ->name('fr.')
-    ->group(function () {
-        Route::get('/voyages/index', function () {
-            return view('travels/index');
-        })->name('accueil');
-
-        Route::get('/voyages/equipage/{crew}', [CrewController::class, 'show'])->name('equipage');
-
-        Route::get('/voyages/planete/{planet}', [PlanetController::class, 'show'])->name('planete');
-
-        Route::get('/voyages/technologie/{technology}', [TechnologyController::class, 'show'])->name('technologie');
-    });
+                Route::get('/technology/{technology}', [TechnologyController::class, 'show'])
+                    ->name('technologie');
+            });
+        });
+}
 
 /**
  * Route Breeze du fichier auth.php
