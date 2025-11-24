@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Crew;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class CrewController extends Controller
 {
@@ -35,18 +37,11 @@ class CrewController extends Controller
     {
         $this->authorize('create', Crew::class);
 
-        $validated = $request->validate([
-            'role_fr' => 'required|string|max:50',
-            'role_en' => 'required|string|max:50',
-            'description_fr' => 'required|string|max:500',
-            'description_en' => 'required|string|max:500',
-            'nom' => 'required|string|max:50',
-            'image' => 'required|url|max:100'
-        ]);
+        $validated = $this->validateCrew($request);
 
         Crew::create($validated);
-        
-        return redirect()->route('equipes.index')->with('message', 'Équipe formée');
+
+        return redirect()->route('admin.equipes.index')->with('message', 'Équipe formée');
     }
 
     /**
@@ -54,7 +49,7 @@ class CrewController extends Controller
      */
     public function show(Crew $crew)
     {
-        $crews = Crew::query()->orderBy('id')->get();
+        $crews = Crew::query()->orderBy('id')->get('id');
         return view('travels.crew', compact('crew', 'crews'));
     }
 
@@ -75,18 +70,11 @@ class CrewController extends Controller
     {
         $this->authorize('update', $crew);
 
-        $validated = $request->validate([
-            'role_fr' => 'required|string|max:50',
-            'role_en' => 'required|string|max:50',
-            'description_fr' => 'required|string|max:500',
-            'description_en' => 'required|string|max:500',
-            'nom' => 'required|string|max:50',
-            'image' => 'required|url|max:100'
-        ]);
+        $validated = $this->validateCrew($request, $crew);
 
         $crew->update($validated);
 
-        return redirect()->route('equipes.index')->with('message', 'Équipe mise à jour avec succès');
+        return redirect()->route('admin.equipes.index')->with('message', 'Équipe mise à jour avec succès');
     }
 
     /**
@@ -97,6 +85,42 @@ class CrewController extends Controller
         $this->authorize('delete', $crew);
 
         $crew->delete();
-        return redirect()->route('equipes.index')->with('message', 'Équipe détruites avec succès');
+        return redirect()->route('admin.equipes.index')->with('message', 'Équipe détruites avec succès');
+    }
+
+    /**
+     * Validation commune pour store et update.
+     */
+    private function validateCrew(Request $request, Crew $crew = null)
+    {
+        return $request->validate([
+            'role_fr' => 'required|string|max:50',
+            'role_en' => 'required|string|max:50',
+            'description_fr' => 'required|string|max:500',
+            'description_en' => 'required|string|max:500',
+            'nom' => [
+                'required',
+                'string',
+                'max:50',
+                Rule::unique('crews', 'nom')
+                    ->ignore($crew->id ?? null),
+            ],
+            'image' => 'required|url|max:100'
+        ], [
+            'role_fr.required' => 'Le rôle en français est obligatoire.',
+            'role_fr.max' => 'Le rôle en français ne peut pas dépasser 50 caractères.',
+            'role_en.required' => 'Le rôle en anglais est obligatoire.',
+            'role_en.max' => 'Le rôle en anglais ne peut pas dépasser 50 caractères.',
+            'description_fr.required' => 'La description en français est obligatoire.',
+            'description_fr.max' => 'La description en français ne peut pas dépasser 500 caractères.',
+            'description_en.required' => 'La description en anglais est obligatoire.',
+            'description_en.max' => 'La description en anglais ne peut pas dépasser 500 caractères.',
+            'nom.required' => 'Le nom du membre est obligatoire.',
+            'nom.max' => 'Le nom du membre ne peut pas dépasser 50 caractères.',
+            'nom.unique' => 'Ce nom est déjà utilisé pour un autre membre.',
+            'image.required' => 'Une URL de votre image est obligatoire.',
+            'image.url' => 'Cette URL de votre image n\'est pas valide.',
+            'image.max' => 'Une URL de votre image ne peut pas dépasser 100 caractères.',
+        ]);
     }
 }

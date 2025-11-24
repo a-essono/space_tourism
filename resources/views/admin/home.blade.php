@@ -5,7 +5,6 @@
                 {{ __('Tableau de bord administratif :') }}
             </h2>
             <div class="flex items-center gap-2">
-
                 <a href="{{ route('dashboard') }}"
                     class="inline-flex items-center px-3 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50">
                     Espace admin

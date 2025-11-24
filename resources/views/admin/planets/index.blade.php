@@ -1,6 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        Liste des planètes
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+               Liste des planètes
+            </h2>
+            <div class="flex items-center gap-2">
+                <a href="{{ route('dashboard') }}"
+                    class="inline-flex items-center px-3 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50">
+                    Espace admin
+                </a>
+            </div>
+        </div>
     </x-slot>
     <!-- Message de réussite -->
     @if (session()->has('message'))

@@ -42,3 +42,36 @@ document.addEventListener('DOMContentLoaded', () => {
         btnX.addEventListener("click", () => newDiv.remove());
     });
 });
+
+// === Double submit  ===
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll("form").forEach(form => {
+
+        form.addEventListener("submit", function (e) {
+
+            // Si ce formulaire a déjà été soumis → stop
+            if (this.dataset.submitted === "true") {
+                e.preventDefault();
+                return false;
+            }
+
+            // Marque comme soumis
+            this.dataset.submitted = "true";
+
+            // Désactivation seulement des boutons submit ou input[type=submit]
+            const btns = this.querySelectorAll("button[type=submit], input[type=submit]");
+            btns.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add("opacity-50", "cursor-not-allowed");
+                if (!btn.dataset.originalText) {
+                    btn.dataset.originalText = btn.innerText;
+                }
+                btn.innerText = "Envoi...";
+            });
+        });
+
+    });
+
+});
+

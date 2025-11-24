@@ -36,6 +36,9 @@ class RolesAndPermissionsSeeder extends Seeder
             'technologies.create',
             'technologies.edit',
             'technologies.delete',
+
+            // Permissions Admin / Users
+            'users.manage',
         ];
 
         foreach ($perms as $p) {

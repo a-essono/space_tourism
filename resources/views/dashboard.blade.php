@@ -15,12 +15,19 @@
                     </p>
 
                     @php
+                    // Récupérer tous les rôles
                         $roles = auth()->user()->getRoleNames();
+                        // Extraire uniquement la partie après le "_" (le suffixe)
+                        $rolesSuffix = $roles->map(function ($role) {
+                            return strpos($role, '_') !== false ? explode('_', $role)[1] : $role;
+                        })->unique(); // pour éviter les doublon
+
+                        // Récupérer toutes les permissions
                         $permissions = auth()->user()->getAllPermissions();
                         // Extraire les préfixes avant le point
                         $listTypes = $permissions->map(function ($p) {
                             return explode('.', $p->name)[0];
-                        })->unique();
+                        })->unique(); // pour éviter les doublon
 
                         // Vérifier s’il y a plus d’un type
                         $multipleLists = $listTypes->count() > 1;
@@ -48,17 +55,32 @@
                     </h3>
                     <div class="mt-2 flex flex-wrap gap-2">
                         {{-- Affichage des rôles --}}
-                        @forelse ($roles as $role)
-                            <span
-                                class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-indigo-100 text-indigo-800">
-                                {{ strpos($role, '_') !== false ? explode('_', $role)[1] : $role }}:
-                                {{ $listTypes->values()->implode(', ')  }}
+                        @forelse ($rolesSuffix as $role)
+                            <span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-indigo-100 text-indigo-800">
+                                {{ $role }}: {{ $listTypes->implode(', ') }}
                             </span>
                         @empty
                             <span class="text-gray-500 text-sm">Aucun rôle</span>
                         @endforelse
                     </div>
                 </div>
+                @can('users.manage')
+                    <!-- Carte administration -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="bg-white rounded-xl shadow p-6">
+                            <h3 class="text-sm font-medium text-gray-700">Administration</h3>
+                            <p class="mt-1 text-sm text-gray-600">
+                                Gérer les utilisateurs.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <a href="{{ route('admin.users.index') }}"
+                                    class="px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 text-sm">
+                                    Utilisateurs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endcan
             </div>
         </div>
     </div>

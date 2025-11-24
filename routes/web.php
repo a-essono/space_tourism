@@ -130,4 +130,17 @@ Route::put('admin/technologies/{technology}', [TechnologyController::class, 'upd
 Route::delete('admin/technologies/{technology}', [TechnologyController::class, 'destroy'])->where('technology', '[0-9]+')->name('technologies.destroy');
 });
 
+/**
+ * Route Admin avec un users.manage
+ **/
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware(['auth','verified','permission:crews.view']) // ou 'role:admin'
+    ->group(function () {
+        // Gestion des rôles assignés aux utilisateurs
+        Route::get('users', [UserRoleController::class, 'index'])->name('users.index');
+        Route::get('users/{user}/roles', [UserRoleController::class, 'edit'])->name('users.roles.edit');
+        Route::put('users/{user}/roles', [UserRoleController::class, 'update'])->name('users.roles.update');
+    });
+
 
