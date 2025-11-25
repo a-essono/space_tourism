@@ -37,11 +37,7 @@ font-normal h-[100vh]">
                 <ul class="text-[14px] leading-[16px] lg:text-[16px] lg:leading-[19px] tracking-[2.36px] lg:tracking-[2.7px] 
                 text-[var(--white-25)] font-barlow uppercase whitespace-nowrap
                 md:flex list-none hidden gap-4">
-                    @php
-                        $defaultPlanet = \App\Models\Planet::first();
-                        $defaultTech = \App\Models\technology::first();
-                        $defaultCrew = \App\Models\Crew::first();
-                    @endphp
+                    
                     <li
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'accueil' ? 'border-white' : 'border-transparent hover:border-white' }}">

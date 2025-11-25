@@ -30,9 +30,6 @@
         flex items-center justify-center rounded-full w-40 h-40 
             text-black bg-white font-bellefair whitespace-nowrap 
             shadow-none hover:shadow-[0_0_0_40px_rgba(255,255,255,0.1)] transition-all duration-300">
-                    @php
-                        $defaultPlanet = \App\Models\Planet::first();
-                    @endphp
                     <a class="w-40 h-40 
             flex items-center justify-center rounded-full" href="{{ route(app()->getLocale() . '.planete', [$defaultPlanet->id]) }}"
                         alt="Explorer">{{ __('messages.btn_explore') }}</a>
