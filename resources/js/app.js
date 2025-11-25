@@ -12,9 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!btnHamburger || !hamburgerDiv) return;
 
-    btnHamburger.addEventListener("click", (e) => {
-        // console.log(e.target);
-
+    // Fonction pour créer le menu
+    const createMenu = (menuItems) => {
         const newDiv = document.createElement('div');
         newDiv.className = `
             fixed top-0 right-0 
@@ -26,20 +25,40 @@ document.addEventListener('DOMContentLoaded', () => {
             items-start 
         `;
 
+        const listItems = menuItems.map((item, index) => `
+            <li class="mb-3">
+                <a href="${item.url}">
+                    <span class="inline opacity-25 lg:hidden">0${index}</span> ${item.label}
+                </a>
+            </li>
+        `).join('');
+
         newDiv.innerHTML = `
             <button class="text-2xl hover:text-black self-end" id="xbtn">X</button>
-            <ul class="flex flex-col gap-6 text-left text-lg pr-1 mt-28 pl-20"> 
-                <li class="mb-3"><a href="http://space_tourism.test/public/travels/index">00 ACCUEIL</a></li>
-                <li class="mb-3"><a href="http://space_tourism.test/public/travels/planet">01 DESTINATION</a></li>
-                <li class="mb-3"><a href="http://space_tourism.test/public/travels/crew">02 EQUIPAGE</a></li>
-                <li class="mb-3"><a href="http://space_tourism.test/public/travels/tech">03 TECHNOLOGIE</a></li>
-            </ul>  
+            <ul class="flex flex-col gap-6 text-left text-lg pr-1 mt-28 pl-20">
+                ${listItems}
+            </ul>
         `;
 
         hamburgerDiv.insertAdjacentElement('afterend', newDiv);
 
-        const btnX = document.querySelector('#xbtn');
-        btnX.addEventListener("click", () => newDiv.remove());
+        document.querySelector('#xbtn').addEventListener("click", () => newDiv.remove());
+    };
+
+    // Listener sur le bouton hamburger
+    btnHamburger.addEventListener("click", async () => {
+        
+        const locale = document.documentElement.lang;
+        console.log(locale);
+        try {
+            
+            const res = await fetch(`/${locale}/menu`);
+            if (!res.ok) throw new Error('Erreur réseau');
+            const menuItems = await res.json();
+            createMenu(menuItems);
+        } catch (error) {
+            console.error("Impossible de récupérer le menu :", error);
+        }
     });
 });
 

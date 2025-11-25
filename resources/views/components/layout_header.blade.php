@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,7 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet"> -->
 </head>
 
-<body class="{{ $bg }} 
-min-w-[349px] overflow-x-auto 
+<body class="{{ $bg }} min-w-[349px] overflow-x-auto 
 font-normal h-[100vh]">
     <header class="header 
     h-[10vh] px-5 xs:mr-5 
@@ -38,7 +37,7 @@ font-normal h-[100vh]">
                 <ul class="text-[14px] leading-[16px] lg:text-[16px] lg:leading-[19px] tracking-[2.36px] lg:tracking-[2.7px] 
                 text-[var(--white-25)] font-barlow uppercase whitespace-nowrap
                 md:flex list-none hidden gap-4">
-                @php
+                    @php
                         $defaultPlanet = \App\Models\Planet::first();
                         $defaultTech = \App\Models\technology::first();
                         $defaultCrew = \App\Models\Crew::first();
@@ -50,7 +49,7 @@ font-normal h-[100vh]">
                             <span class="hidden opacity-25 lg:inline">00</span> {{ __('messages.home') }}
                         </a>
                     </li>
-                    
+
                     <li
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'planete' ? 'border-white' : 'border-transparent hover:border-white' }}">
@@ -68,7 +67,8 @@ font-normal h-[100vh]">
                     <li
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'technologie' ? 'border-white' : 'border-transparent hover:border-white' }}">
-                        <a href="{{ route(app()->getLocale() . '.technologie', [$defaultTech->id]) }}" alt="Technologie">
+                        <a href="{{ route(app()->getLocale() . '.technologie', [$defaultTech->id]) }}"
+                            alt="Technologie">
                             <span class="hidden opacity-25 lg:inline">03</span> {{ __('messages.technology') }}
                         </a>
                     </li>

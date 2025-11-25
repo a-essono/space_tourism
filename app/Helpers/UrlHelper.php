@@ -1,33 +1,23 @@
 <?php
+
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
 
 if (!function_exists('localizedUrlInline')) {
     function localizedUrlInline($targetLocale)
     {
+        $currentRouteName = Route::currentRouteName(); // ex: fr.equipage
+        $currentRouteParams = Route::current()->parameters(); // ['crew' => 1]
 
-        $currentLocale = App::getLocale();
+        // Remplacer le préfixe de langue dans le nom de route
+        $targetRouteName = preg_replace('/^(fr|en)\./', $targetLocale . '.', $currentRouteName);
 
-        // Charge les traductions actuelles et cibles
-        $currentTranslations = trans('messages', [], $currentLocale);
-        $targetTranslations = trans('messages', [], $targetLocale);
-
-        $segments = request()->segments(); // ['fr', 'voyages', 'planete']
-
-        if (!empty($segments) && in_array($segments[0], ['en', 'fr'])) {
-            $segments[0] = $targetLocale; // change le préfixe
-        } else {
-            array_unshift($segments, $targetLocale);
+        // Générer l’URL via route() pour garder les paramètres dynamiques
+        if (Route::has($targetRouteName)) {
+            return route($targetRouteName, $currentRouteParams);
         }
 
-        // Traduire les segments restants
-        foreach ($segments as $index => $segment) {
-            // Cherche la clé qui correspond à ce segment dans la locale actuelle
-            $key = array_search($segment, $currentTranslations);
-            if ($key && isset($targetTranslations[$key])) {
-                $segments[$index] = $targetTranslations[$key];
-            }
-        }
-        return url(implode('/', $segments));
+        // fallback
+        return url($targetLocale);
     }
 }
-

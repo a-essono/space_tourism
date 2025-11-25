@@ -6,11 +6,12 @@ use App\Http\Controllers\PlanetController;
 use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\Admin\UserRoleController;
 use App\Http\Middleware\SetLocal;
+use App\Http\Controllers\Api\MenuController;
 use App\Models\technology;
 use Illuminate\Support\Facades\Route;
 
 /**
- * Route Breeze
+ * Route Breeze (à l'installation avec Auth en prime)
  **/
 
 Route::get('/', function () {
@@ -36,12 +37,18 @@ Route::middleware('auth')->group(function () {
 
 $languages = [
     'en' => [
-        'prefix' => 'travels',
         'names' => 'en.',
+        'prefix' => 'travels',
+        'crew' => 'crew',
+        'technology' => 'technology',
+        'planet' => 'planet',
     ],
     'fr' => [
-        'prefix' => 'voyages',
         'names' => 'fr.',
+        'prefix' => 'voyages',
+        'crew' => 'equipage',
+        'technology' => 'technologie',
+        'planet' => 'planete',
     ],
 ];
 
@@ -50,22 +57,33 @@ foreach ($languages as $locale => $config) {
         ->middleware(SetLocal::class)
         ->name($config['names'])
         ->group(function () use ($config) {
-            Route::prefix($config['prefix'])->group(function () {
+
+
+            Route::prefix($config['prefix'])->group(function () use ($config){
                 Route::get('/index', function () {
                     return view('travels/index');
                 })->name('accueil');
 
-                Route::get('/crew/{crew}', [CrewController::class, 'show'])
+                Route::get('/' . $config['crew'] . '/{crew}', [CrewController::class, 'show'])
                     ->name('equipage');
 
-                Route::get('/planet/{planet}', [PlanetController::class, 'show'])
+                Route::get('/' . $config['planet'] . '/{planet}', [PlanetController::class, 'show'])
                     ->name('planete');
 
-                Route::get('/technology/{technology}', [TechnologyController::class, 'show'])
+                Route::get('/' . $config['technology'] . '/{technology}', [TechnologyController::class, 'show'])
                     ->name('technologie');
+
             });
+
+            /**
+             * Route Api menu
+             **/
+            Route::get('/menu', [MenuController::class, 'index'])
+                ->name('menu');
         });
 }
+
+
 
 /**
  * Route Breeze du fichier auth.php
