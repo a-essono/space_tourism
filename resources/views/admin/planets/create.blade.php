@@ -21,16 +21,6 @@
         </div>
     @endif
 
-    <!-- Message erreurs -->
-    @if ($errors->any())
-        <div class="mt-3 mb-4 list-disc list-inside text-sm text-green-600">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <form action="{{ route('admin.planetes.store') }}" method="post">
         @csrf
         <!-- Nom (FR) -->
@@ -112,7 +102,7 @@
         <!-- Image (URL) -->
         <div>
             <x-label for="image" label="URL de l’image" />
-            <input type="url" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
+            <input type="text" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
                 value="{{ old('image') }}" required>
             @error('image')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>

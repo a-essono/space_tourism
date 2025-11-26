@@ -31,7 +31,7 @@ class PlanetSeeder extends Seeder
                                     dive into the story when visiting the landing site of Luna 2 and Apollo 11.",
                 'distance_en' => '384 000 km',
                 'duree_en' => '3 days',
-                'image' => 'http://127.0.0.1:8000/storage/images/moon.png',
+                'image' => 'images/moon.png',
             ],
             [
                 'nom_fr' => 'Mars',
@@ -44,7 +44,7 @@ class PlanetSeeder extends Seeder
                                     the highest planetary mountain in our solar system. It is two and a half times the size of Mount Everest.",
                 'distance_en' => '225 Gm',
                 'duree_en' => '9 months',
-                'image' => 'http://127.0.0.1:8000/storage/images/mars.png',
+                'image' => 'images/mars.png',
             ],
             [
                 'nom_fr' => 'Europe',
@@ -59,7 +59,7 @@ class PlanetSeeder extends Seeder
                                     or just simply to relax in a comfortable winter chalet.",
                 'distance_en' => '628 Gm',
                 'duree_en' => '3 years',
-                'image' => 'http://127.0.0.1:8000/storage/images/europa.png',
+                'image' => 'images/europa.png',
             ],
             [
                 'nom_fr' => 'Titan',
@@ -74,7 +74,7 @@ class PlanetSeeder extends Seeder
                                     As a bonus, you can you can contemplate the amazing views of Saturn\'s rings.",
                 'distance_en' => '1.6 Tm',
                 'duree_en' => '7 years',
-                'image' => 'http://127.0.0.1:8000/storage/images/titan.png',
+                'image' => 'images/titan.png',
             ],
         ];
 

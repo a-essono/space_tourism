@@ -16,7 +16,7 @@
                 </h2>
                 <div class="mx-auto w-[170px] h-[170px] md:w-[300px] md:h-[300px] lg:w-[515px] lg:h-[527px] 
             flex items-center justify-center">
-                    <img src="{{ $planet->image }}" alt="{{ $planet->{'nom_' . app()->getLocale()} }}" class="w-full h-full object-contain">
+                    <img src="{{ $planet->image_url  }}" alt="{{ $planet->{'nom_' . app()->getLocale()} }}" class="w-full h-full object-contain">
                 </div>
             </section>
             <section>

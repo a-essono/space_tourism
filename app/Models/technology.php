@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Technology extends Model
 {
@@ -15,4 +16,15 @@ class Technology extends Model
         'description_fr', 'description_en',
         'image'
     ];
+
+    /**
+     * Génère automatiquement l'URL publique de l'image.
+     * Cette méthode est un accessor Eloquent. 
+     * @return string  URL publique complète de l’image
+     */
+    public function getImageUrlAttribute()
+    {
+        return Storage::url($this->image);
+    }
+
 }

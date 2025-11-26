@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Crew extends Model
 {
@@ -26,6 +27,16 @@ class Crew extends Model
             'prenom' => $parts[0] ?? '',
             'nom' => $parts[1] ?? '',
         ];
+    }
+
+    /**
+     * Génère automatiquement l'URL publique de l'image.
+     * Cette méthode est un accessor Eloquent. 
+     * @return string  URL publique complète de l’image
+     */
+    public function getImageUrlAttribute()
+    {
+        return Storage::url($this->image);
     }
 
 }

@@ -105,7 +105,7 @@ class CrewController extends Controller
                 Rule::unique('crews', 'nom')
                     ->ignore($crew->id ?? null),
             ],
-            'image' => 'required|url|max:100'
+            'image' => 'required|max:100|regex:/^[a-zA-Z0-9\/._-]+$/',
         ], [
             'role_fr.required' => 'Le rôle en français est obligatoire.',
             'role_fr.max' => 'Le rôle en français ne peut pas dépasser 50 caractères.',

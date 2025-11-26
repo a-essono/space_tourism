@@ -101,7 +101,7 @@ class TechnologyController extends Controller
             'nom_en' => 'required|string|max:50',
             'description_fr' => 'required|string|max:500',
             'description_en' => 'required|string|max:500',
-            'image' => 'required|url|max:100',
+            'image' => 'required|max:100|regex:/^[a-zA-Z0-9\/._-]+$/',
         ], [
             'nom_fr.required' => 'Le nom en français est obligatoire.',
             'nom_fr.max' => 'Le nom en français ne peut pas dépasser 50 caractères.',

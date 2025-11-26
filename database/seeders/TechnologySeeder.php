@@ -28,7 +28,7 @@ class TechnologySeeder extends Seeder
                                     a payload from the Earth\'s surface into space, usually into Earth orbit 
                                     or beyond. Our WEB-X rocket is the most powerful in service. Standing 150 meters tall,
                                     it puts on an impressive show on the launch pad!",
-                'image' => 'http://127.0.0.1:8000/storage/images/soyuz1.jpg',
+                'image' => 'images/soyuz1.jpg',
             ],
             [
                 'nom_fr' => 'Le spatioport',
@@ -39,7 +39,7 @@ class TechnologySeeder extends Seeder
                 'description_en' => "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
                                     similar to a seaport for ships or an airport for aircraft. Based at the famous Cape Canaveral, 
                                     our spaceport is ideally located to take advantage of the Earth\'s rotation for launch.",
-                'image' => 'http://127.0.0.1:8000/storage/images/soyuz2.jpg',
+                'image' => 'images/soyuz2.jpg',
             ],
             [
                 'nom_fr' => 'La capsule spatiale',
@@ -52,7 +52,7 @@ class TechnologySeeder extends Seeder
                                     to reenter Earth\'s atmosphere without wings. Our capsule is where 
                                     you will spend your time during the flight. It includes a gym, a movie theater, 
                                     and many other activities to keep you entertained.",
-                'image' => 'http://127.0.0.1:8000/storage/images/soyuz3.jpg',
+                'image' => 'images/soyuz3.jpg',
             ],
         ];
 

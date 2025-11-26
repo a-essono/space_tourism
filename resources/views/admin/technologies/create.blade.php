@@ -63,7 +63,7 @@
         <!-- Image (URL) -->
         <div>
             <x-label for="image" label="URL de l’image)" />
-            <input type="url" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
+            <input type="text" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
                 value="{{ old('image') }}" required>
             @error('image')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>

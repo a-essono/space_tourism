@@ -28,7 +28,7 @@ class CrewSeeder extends Seeder
                                     an old astronaut of NASA astronaut. He is launched into space 
                                     for the third time as commander of the Crew Dragon Demo 2 starship.",
                 'nom' => 'Douglas Hurley',
-                'image' => 'http://127.0.0.1:8000/storage/images/commander.png',
+                'image' => 'images/commander.png',
             ],
             [
                 'role_fr' => 'Spécialiste de mission',
@@ -42,7 +42,7 @@ class CrewSeeder extends Seeder
                                     Shuttleworth has become the first South-African to travel into space 
                                     as a space tourist.",
                 'nom' => 'Mark Shuttleworth',
-                'image' => 'http://127.0.0.1:8000/storage/images/specialist.png',
+                'image' => 'images/specialist.png',
             ],
             [
                 'role_fr' => 'Pilote',
@@ -56,7 +56,7 @@ class CrewSeeder extends Seeder
                                     in the American Navy, where he pilots a F/A-18. He was a member of the crew of expedition 64 
                                     and he has served as a flight engineer of station systems.",
                 'nom' => 'Victor Glover',
-                'image' => 'http://127.0.0.1:8000/storage/images/pilot.png',
+                'image' => 'images/pilot.png',
             ],
             [
                 'role_fr' => 'Ingénieure de vol',
@@ -68,7 +68,7 @@ class CrewSeeder extends Seeder
                                     Ansari was the fourth self-financing tourist in space, the first self-financing woman to go to the ISS, 
                                     and the first Iranian woman in space.",
                 'nom' => 'Anousheh Ansari',
-                'image' => 'http://127.0.0.1:8000/storage/images/engineer.png',
+                'image' => 'images/engineer.png',
             ],
         ];
 

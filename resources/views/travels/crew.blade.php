@@ -15,7 +15,7 @@
                 <div class="   
                 max-w-xl w-full flex items-center justify-center">
                     <img class="w-[159.69px] h-[222px] md:w-[411.45px] md:h-[572px] lg:w-[512.15px] lg:h-[712px] 
-                    lg:-mt-24" src="{{ $crew->image }}" alt="{{ $crew->{'role_' . app()->getLocale()} . ' ' . $crew->name }}">
+                    lg:-mt-24" src="{{ $crew->image_url }}" alt="{{ $crew->{'role_' . app()->getLocale()} . ' ' . $crew->name }}">
                 </div>
                 <div class="flex items-center md:hidden">
                     <!-- Ligne flexible sur la taille du parent -->
