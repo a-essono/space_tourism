@@ -18,6 +18,17 @@ class Technology extends Model
     ];
 
     /**
+     * Nettoie ce qui est stocké
+     * Cette méthode est un Mutator Eloquent 
+     * @param mixed $value
+     * @return void
+     */
+    public function setImageAttribute($value)
+    {
+        $this->attributes['image'] = str_replace('/storage/', '', $value);
+    }
+
+    /**
      * Génère automatiquement l'URL publique de l'image.
      * Cette méthode est un accessor Eloquent. 
      * @return string  URL publique complète de l’image

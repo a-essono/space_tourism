@@ -22,6 +22,17 @@ class Planet extends Model
         'duree_en',
         'image'
     ];
+
+    /**
+     * Nettoie ce qui est stocké
+     * Cette méthode est un Mutator Eloquent 
+     * @param mixed $value
+     * @return void
+     */
+    public function setImageAttribute($value)
+    {
+        $this->attributes['image'] = str_replace('/storage/', '', $value);
+    }
     
     /**
      * Génère automatiquement l'URL publique de l'image.
