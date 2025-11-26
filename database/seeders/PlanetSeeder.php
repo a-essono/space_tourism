@@ -31,7 +31,7 @@ class PlanetSeeder extends Seeder
                                     dive into the story when visiting the landing site of Luna 2 and Apollo 11.",
                 'distance_en' => '384 000 km',
                 'duree_en' => '3 days',
-                'image' => 'http://127.0.0.1:8000/build/images/moon.png',
+                'image' => 'http://127.0.0.1:8000/storage/images/moon.png',
             ],
             [
                 'nom_fr' => 'Mars',

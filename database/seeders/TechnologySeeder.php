@@ -28,7 +28,7 @@ class TechnologySeeder extends Seeder
                                     a payload from the Earth\'s surface into space, usually into Earth orbit 
                                     or beyond. Our WEB-X rocket is the most powerful in service. Standing 150 meters tall,
                                     it puts on an impressive show on the launch pad!",
-                'image' => 'http://127.0.0.1:8000/build/images/soyuz1.jpg',
+                'image' => 'http://127.0.0.1:8000/storage/images/soyuz1.jpg',
             ],
             [
                 'nom_fr' => 'Le spatioport',

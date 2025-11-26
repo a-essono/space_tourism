@@ -28,7 +28,7 @@ class CrewSeeder extends Seeder
                                     an old astronaut of NASA astronaut. He is launched into space 
                                     for the third time as commander of the Crew Dragon Demo 2 starship.",
                 'nom' => 'Douglas Hurley',
-                'image' => 'http://127.0.0.1:8000/build/images/commander.png',
+                'image' => 'http://127.0.0.1:8000/storage/images/commander.png',
             ],
             [
                 'role_fr' => 'Spécialiste de mission',

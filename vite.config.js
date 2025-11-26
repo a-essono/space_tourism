@@ -12,9 +12,10 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: ['resources/images/logo.png', 'resources/images/hamburger.svg',
-                        'resources/images/moon.png', 'resources/images/commander.png',
-                        'resources/images/soyuz1.jpg'],
+                    src: [
+                        'resources/images/logo.png', 
+                        'resources/images/hamburger.svg',
+                    ],
                     dest: 'images'
                 }
             ]
