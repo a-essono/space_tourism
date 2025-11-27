@@ -12,33 +12,44 @@
         flex flex-col justify-center items-center 
         md:flex-col-reverse lg:flex-row-reverse lg:justify-between px-4 lg:ml-12">
             <section class="max-w-xl w-full ">
-                <div class="   
-                max-w-xl w-full flex items-center justify-center">
-                    <img class="w-[159.69px] h-[222px] md:w-[411.45px] md:h-[572px] lg:w-[512.15px] lg:h-[712px] 
-                    lg:-mt-24" src="{{ $crew->image_url }}" alt="{{ $crew->{'role_' . app()->getLocale()} . ' ' . $crew->name }}">
+                <div class="relative 
+                    w-full max-w-[327px] aspect-[327/223.1]
+                    md:max-w-[411.45px] md:aspect-[411.45/572]
+                    lg:max-w-[411.45px] lg:aspect-[411.45/572]
+                    mx-auto">
+                    <!-- Équipage -->
+                    <img src="{{ $crew->image_url }}"
+                        alt="{{ $crew->{'role_' . app()->getLocale()} . ' ' . $crew->name }}" class="absolute 
+                        left-[26.9%] w-[48.8%] h-[99.5%]
+                        md:left-0 md:w-full md:h-full
+                        lg:left-0 lg:w-full lg:h-full
+                        object-contain">
                 </div>
                 <div class="flex items-center md:hidden">
                     <!-- Ligne flexible sur la taille du parent -->
                     <div class="h-px 
-                    bg-line 
-                    flex flex-1 z-10"></div>
+                        bg-line 
+                        flex flex-1 z-10">
+                    </div>
                 </div>
             </section>
             <section class="max-w-xl w-full 
-            md:flex md:flex-col-reverse  lg:items-start lg:justify-start">
+                    md:flex md:flex-col-reverse  lg:items-start lg:justify-start">
                 <div class="w-[337px] h-[54px] max-w-xl w-full 
-                flex items-center justify-center lg:justify-start  m-5">
+                    flex items-center justify-center lg:justify-start  m-5">
                     <ul class="text-[14px] leading-[16px] tracking-[2.36px] md:text[16px] md:leading-[19px] md:tracking-[2.7px] 
-                    text-[var(--white-25)] uppercase whitespace-nowrap 
-                    flex gap-6">
+                        text-[var(--white-25)] uppercase whitespace-nowrap 
+                        flex gap-6">
                         <x-list_crew :crews="$crews" />
                     </ul>
                 </div>
                 <div class="">
                     <h1 class="text-[16px] leading-[19px] tracking-[2.7px] md:text-[24px] md:leading-[27px] lg:text-[32px] lg:leading-[36px] 
-                    font-bellefair  uppercase text-[var(--gray-25)] mb-3 ">{{ $crew->{'role_' . app()->getLocale()} }}</h1>
+                        font-bellefair  uppercase text-[var(--gray-25)] mb-3 ">
+                        {{ $crew->{'role_' . app()->getLocale()} }}
+                    </h1>
                     <h2 class="text-[56px] md:text-8xl leading-[64px] md:text-[80px] md:leading-[91px] lg:text-[100px] lg:leading-[114px] 
-                    font-bellefair text-[var(--white-25)] uppercase whitespace-nowrap mb-6">
+                        font-bellefair text-[var(--white-25)] uppercase whitespace-nowrap mb-6">
                         <!-- Douglas <span class="lg:hidden">Hurley</span> -->
                         {{ $crew->nom_split['prenom'] }}
                         <span class="lg:hidden">{{ $crew->nom_split['nom'] }}</span>

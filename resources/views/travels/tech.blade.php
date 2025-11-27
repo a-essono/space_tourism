@@ -9,15 +9,18 @@
         text-center lg:text-start mb-6 m-16">
             <span class="opacity-25">03</span> {{ __('messages.h2_tech') }}
         </h2>
-        
         <section class="text-center 
         flex flex-col  justify-center items-center lg:flex-row-reverse lg:justify-around ">
-            <section>
-                <div class="w-screen h-[300px] lg:w-[515px] lg:h-[527px] 
-                overflow-hidden">
-                    <img src="{{ $technology->image_url }}" alt="{{$technology->{'nom_' . app()->getLocale()} }}"
-                        class="w-full h-full 
-                        object-cover object-[center_80%] lg:object-[center]" />
+            <section class="w-full lg:w-auto">
+                <div class="relative overflow-hidden w-full 
+                    h-[45vw] max-h-[170px]         /* mobile % */
+                    sm:h-[40vw] sm:max-h-[310px]   /* tablette % */
+                    lg:w-[35vw] lg:h-[40vw] lg:max-h-[527px]">
+                    <img src="{{ $technology->image_url }}" alt="{{ $technology->{'nom_' . app()->getLocale()} }}"
+                        class="absolute inset-0 w-full h-full object-cover
+                            object-[center_80%]
+                            sm:object-[center_65%]
+                            lg:object-center">
                 </div>
             </section>
             <section class=" lg:text-start 
@@ -28,7 +31,7 @@
                     <ul class="text-[14px] leading-[16px] tracking-[2.36px] md:text[16px] md:leading-[19px] md:tracking-[2.7px] 
                     text-[var(--white-25)] uppercase whitespace-nowrap 
                     flex lg:block lg:-mt-22">
-                        <x-list_tech :technologies="$technologies"/>
+                        <x-list_tech :technologies="$technologies" />
                     </ul>
                 </div>
                 <div class="w-full  
@@ -50,10 +53,10 @@
                     </p>
                 </div>
             </section>
-            
+
         </section>
         <!-- <div class="w-full flex justify-end p-5"> -->
-            <x-switch_lang/>
+        <x-switch_lang />
         <!-- </div> -->
-       
+
 </x-layout_header>
