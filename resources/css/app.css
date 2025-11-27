@@ -122,6 +122,22 @@
     height: auto;
 }
 
+/* fichier : resources/css/app.css ou <style> dans Blade */
+.planet-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px; /* rounded-full */
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background: radial-gradient(
+        circle at 65% 65%,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,1) 55%,
+        rgba(0,0,0,0) 75%
+    );
+}
+
+
 /* =================== */
 /* Classes utilitaires custom */
 /* =================== */
