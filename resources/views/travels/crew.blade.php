@@ -2,7 +2,7 @@
     <x-slot:bg>
         bg_crew
     </x-slot:bg>
-    <main class="flex-1 ">
+    <main class="pt-[5vh] flex-1">
         <h3 class=" text-(length:--titre5-mobile) leading-[19px] tracking-1 md:text-(length:--titre5-tablet) md:leading-[23px] 
         md:tracking-3 lg:text-(length:--titre5-desktop) lg:leading-[33px] lg:tracking-4
         text-[var(--white-25)] font-barlow uppercase text-center md:text-start whitespace-nowrap lg:w-[50vh] m-16">

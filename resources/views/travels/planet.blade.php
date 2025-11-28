@@ -3,7 +3,7 @@
         bg_planet
     </x-slot:bg>
 
-    <main class="flex-1">
+    <main class="pt-[5vh] flex-1">
         <section class="text-center 
     flex-1 flex flex-col justify-center items-center lg:flex-row px-4">
             <section class="relative w-full max-w-4xl">
@@ -43,7 +43,7 @@
                     <div class="max-w-xl w-full">
                         <h1 class="text-(length:--titre2-mobile) leading-[64px] md:text-(length:--titre2-tablet) md:leading-[91px] lg:text-(length:--titre2-desktop)lg:leading-[114px] 
                     font-bellefair text-[var(--white-25)] uppercase  
-                    mb-6">
+                    mt-10 mb-10">
                             {{ $planet->{'nom_' . app()->getLocale()}  }}
                         </h1>
                         <p class="text-(length:--text-mobile) leading-[25px] md:text-(length:--text-tablet) md:leading-[28px] lg:text-(length:--text-desktop) lg:leading-[32px] 

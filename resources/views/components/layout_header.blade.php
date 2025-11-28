@@ -10,9 +10,9 @@
 </head>
 
 <body class="{{ $bg }} min-w-[349px] overflow-x-auto 
-font-normal">
+font-normal pt-[8px]">
     <header class="header 
-    h-[10vh] px-5 xs:mr-5 
+    h-[99px] px-5 xs:mr-5 
     flex items-center justify-between">
         <div class="m-5 lg:mt-24 lg:pl-1.5">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo" class="logo min-w-[48px] min-h-[48px]">
@@ -33,7 +33,7 @@ font-normal">
             </button>
             <nav class="nav md:w-[500px] lg:w-[830px] md:h-[96px] 
             top-0 right-0 absolute md:bg-white/5 md:backdrop-blur-[15px]             
-            flex justify-end items-center p-5 lg:p-15 lg:mt-8 lg:pr-28">
+            flex justify-end items-center p-5 lg:p-15 lg:mt-8 lg:pr-20">
                 <ul class="text-[14px] leading-[16px] lg:text-[16px] lg:leading-[19px] tracking-[2.36px] lg:tracking-[2.7px] 
                 text-[var(--white-25)] font-barlow uppercase whitespace-nowrap
                 md:flex list-none hidden gap-4">

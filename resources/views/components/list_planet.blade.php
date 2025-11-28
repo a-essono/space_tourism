@@ -1,5 +1,5 @@
 @foreach ($planets as $p)
-    <li>
+    <li class="pb-10">
         <a href="{{ route(app()->getLocale() . '.planete', [$p->id]) }}" class="pb-1 border-b-2 border-transparent transition
             {{ Route::currentRouteName() === app()->getLocale() . '.planete' && request()->route('planet')->id == $p->id ? 'border-white' : 'hover:border-white' }} ">
             {{ $p->{'nom_' . app()->getLocale()} }}
