@@ -40,7 +40,6 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-
         <!-- Description (FR) -->
         <div class="ml-6 mr-6">
             <x-label for="description_fr" label="Description (Français)" />
@@ -59,7 +58,6 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-
         <!-- Nom -->
         <div class="ml-6 mr-6">
             <x-label for="nom" label="Nom" />
@@ -69,7 +67,6 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-
         <!-- Image (URL) -->
         <div class="ml-6 mr-6">
             <x-label for="image" label="URL de l’image" />
@@ -79,6 +76,6 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded ml-6 mt-10">Enregistrer</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-10 mb-10 ml-6">Enregistrer</button>
     </form>
 </x-app-layout>

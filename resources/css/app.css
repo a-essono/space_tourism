@@ -29,6 +29,9 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+/* =================== */
+/*  Création de class */
+/* =================== */
 @theme {
     --font-bellefair: 'Bellefair', sans-serif;
     --font-size: 100px;
@@ -37,6 +40,11 @@
     --color-gray-25: rgba(255, 255, 255, 0.5);
     --color-white-25: hsl(0 0% 100%);
     --breakpoint-xs: 429px;
+    /* Class de tracking personnalisée */
+    --tracking-1: 0.169rem; /* 2.7px */
+    --tracking-2: 0.148rem; /* 2.36px */
+    --tracking-3: 0.211rem; /* 3.38px */
+    --tracking-4: 0.295rem; /* 4.72px */  
 }
 
 
@@ -44,7 +52,36 @@
 /* Variables CSS custom */
 /* =================== */
 :root {
-    --ff-size: 100px;
+    /* Taille titre */
+    --titre1-desktop: 9.37rem;
+    --titre2-desktop: 6.25rem;
+    --titre3-desktop: 3.5rem;
+    --titre4-desktop: 2rem;
+    --titre5-desktop: 1.75rem;
+    --titre1-tablet: 6.56rem;
+    --titre2-tablet: 5rem;
+    --titre3-tablet: 2.5rem;
+    --titre4-tablet: 1.5rem;
+    --titre5-tablet: 1.25rem;
+    --titre1-mobile: 4.75rem;
+    --titre2-mobile: 3.5rem;
+    --titre3-mobile: 1.5rem;
+    --titre4-mobile: 1rem;
+    --titre5-mobile: 1rem;
+    /* Taille sous-titre */
+    --explorer-desktop: 2rem;
+    --explorer-mobile: 1.25rem;
+    /* Taille sous-titre */
+    --subtitle1-desktop: 1.75rem;
+    --subtitle2-tablet: 1rem;
+    --subtitle3-mobile: 0.875rem;
+    /* Taille sous-nav */
+    --subnav1-desktop: 1rem;
+    /* Taille text */
+    --text-desktop:1.125rem; 
+    --text-tablet:1rem; 
+    --text-mobile:0.9375rem; 
+    /* Couleur text */
     --white-25: hsl(0 0% 100%);
     --purple-25: hsl(231 77% 90%);
     --gray-25: rgba(255, 255, 255, 0.5);

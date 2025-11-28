@@ -80,13 +80,13 @@
 
         {{-- Image --}}
         <div class="ml-6 mr-6">
-            <x-label for="image" label="URL de l’image)" />
+            <x-label for="image" label="URL de l’image" />
             <input type="text" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
                 value="{{ old('image', $crew->image) }}" required>
             @error('image')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded ml-6 mt-10">Modifier</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-10 mb-10 ml-6">Modifier</button>
     </form>
 </x-app-layout>

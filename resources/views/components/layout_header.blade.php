@@ -42,7 +42,7 @@ font-normal h-[100vh]">
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'accueil' ? 'border-white' : 'border-transparent hover:border-white' }}">
                         <a href="{{ route(app()->getLocale() . '.accueil') }}" alt="Accueil">
-                            <span class="hidden opacity-25 lg:inline">00</span> {{ __('messages.home') }}
+                            <span class="hidden opacity-25 lg:inline font-bold">00</span> {{ __('messages.home') }}
                         </a>
                     </li>
 
@@ -50,14 +50,14 @@ font-normal h-[100vh]">
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'planete' ? 'border-white' : 'border-transparent hover:border-white' }}">
                         <a href="{{ route(app()->getLocale() . '.planete', [$defaultPlanet->id]) }}" alt="Destination">
-                            <span class="hidden opacity-25 lg:inline">01</span> {{ __('messages.destination') }}
+                            <span class="hidden opacity-25 lg:inline font-bold">01</span> {{ __('messages.destination') }}
                         </a>
                     </li>
                     <li
                         class="pb-7.5 border-b-3 transition mt-10 
                     {{ Route::currentRouteName() === 'equipage' ? 'border-white' : 'border-transparent hover:border-white' }}">
                         <a href="{{ route(app()->getLocale() . '.equipage', [$defaultCrew->id]) }}" alt="Equipage">
-                            <span class="hidden opacity-25 lg:inline">02</span> {{ __('messages.crew') }}
+                            <span class="hidden opacity-25 lg:inline font-bold">02</span> {{ __('messages.crew') }}
                         </a>
                     </li>
                     <li
@@ -65,7 +65,7 @@ font-normal h-[100vh]">
                     {{ Route::currentRouteName() === 'technologie' ? 'border-white' : 'border-transparent hover:border-white' }}">
                         <a href="{{ route(app()->getLocale() . '.technologie', [$defaultTech->id]) }}"
                             alt="Technologie">
-                            <span class="hidden opacity-25 lg:inline">03</span> {{ __('messages.technology') }}
+                            <span class="hidden opacity-25 lg:inline font-bold">03</span> {{ __('messages.technology') }}
                         </a>
                     </li>
                 </ul>

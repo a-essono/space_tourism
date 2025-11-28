@@ -3,22 +3,22 @@
         bg_space
     </x-slot:bg>
     <main class="flex1">
-        <section class="flex flex-col justify-center items-center px-4 text-center">
+        <section class="flex flex-col justify-center items-center px-4 text-center lg:flex-row lg:justify-between">
             <div class="max-w-xl w-full">
-                <h3 class="text-[16px] leading-[19px] tracking-[2.7px] md:text-[20px] md:leading-[23px] md:tracking-[4.72px] 
-        lg:text-[28px] lg:leading-[33px] lg:tracking-[4.72px] 
+                <h3 class="text-(length:--titre5-mobile) leading-[19px] tracking-2.7 md:text-(length:--titre5-tablet) md:leading-[23px] md:tracking-4.72 
+        lg:text-(length:--titre5-desktop) lg:leading-[33px] lg:tracking-4.72 
         text-[var(--white-25)] font-barlow  uppercase whitespace-nowrap 
         mb-6 m-16">
                     {{ __('messages.h3_home') }}
                 </h3>
 
-                <h1 class="text-[76px] md:text-[105px] leading-[95px] md:leading-[120px] lg:text-[150px] lg:leading-[171px] 
-        font-bellefair text-[var(--white-25)] 
+                <h1 class="text-(length:--titre1-mobile) md:text-(length:--titre1-tablet) leading-[95px] md:leading-[120px] lg:text-(length:--titre1-desktop) lg:leading-[171px] 
+        font-bellefair text-[var(--white-25)] uppercase
         mb-6">
                     {{ __('messages.h1_home') }}
                 </h1>
 
-                <p class="text-[15px] md:text-[16px] md:leading-[28px] leading-[25px] lg:text-[18px] lg:leading-[32px] 
+                <p class="text-(length:--text-mobile) md:text-(length:--text-tablet) md:leading-[28px] leading-[25px] lg:text-(length:--text-desktop) lg:leading-[32px] 
         text-[var(--purple-25)] font-barlow whitespace-normal 
         mt-10 mb-10">
                     {{ __('messages.p_home') }}
@@ -26,11 +26,11 @@
             </div>
 
             <div class="mt-20 mb-20">
-                <button class="text-[20px] leading-[22px] tracking-[1.25px] md:text[32px] md:leading-[36px] 
-        flex items-center justify-center rounded-full w-40 h-40 
+                <button class="text-(length:--explorer-mobile) leading-[22px] md:text-(length:--explorer-desktop) md:leading-[36px] 
+        flex items-center justify-center rounded-full w-[274px] h-[274px]
             text-black bg-white font-bellefair whitespace-nowrap 
             shadow-none hover:shadow-[0_0_0_40px_rgba(255,255,255,0.1)] transition-all duration-300">
-                    <a class="w-40 h-40 
+                    <a class="w-[274px] h-[274px] 
             flex items-center justify-center rounded-full" href="{{ route(app()->getLocale() . '.planete', [$defaultPlanet->id]) }}"
                         alt="Explorer">{{ __('messages.btn_explore') }}</a>
                 </button>

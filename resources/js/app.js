@@ -20,22 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
             w-[70vw] h-screen 
             bg-white/5 backdrop-blur-[12.5px] 
             z-50 p-6 
-            text-[var(--white-25)] 
+            text-[var(--white-25)]
+            text-(length:--titre4-mobile)
+            leading-[19px]
+            whitespace-nowrap
             flex flex-col 
-            items-start 
+            items-start   
         `;
 
         const listItems = menuItems.map((item, index) => `
-            <li class="mb-3">
+            <li class="mb-5">
                 <a href="${item.url}">
-                    <span class="inline opacity-25 lg:hidden">0${index}</span> ${item.label}
+                    <span class="inline opacity-25 lg:hidden font-bold">0${index}</span> ${item.label}
                 </a>
             </li>
         `).join('');
 
         newDiv.innerHTML = `
             <button class="text-2xl hover:text-black self-end" id="xbtn">X</button>
-            <ul class="flex flex-col gap-6 text-left text-lg pr-1 mt-28 pl-20">
+            <ul class="flex flex-col gap-6 text-left text-lg pr-1 mt-25 ml-10">
                 ${listItems}
             </ul>
         `;

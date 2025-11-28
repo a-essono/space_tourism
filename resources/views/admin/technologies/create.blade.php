@@ -23,7 +23,7 @@
     <form action="{{ route('admin.technologies.store') }}" method="post">
         @csrf
         <!-- Nom (FR) -->
-        <div>
+        <div class="ml-6 mr-6">
             <x-label for="nom_fr" label="Nom (Français)" />
             <input type="text" id="nom_fr" name="nom_fr" maxlength="50" class="w-full px-3 py-2 border rounded"
                 value="{{ old('nom_fr') }}" required>
@@ -32,7 +32,7 @@
             @enderror
         </div>
         <!-- Nom (EN) -->
-        <div>
+        <div class="ml-6 mr-6">
             <x-label for="nom_en" label="Nom (Anglais)" />
             <input type="text" id="nom_en" name="nom_en" maxlength="50" class="w-full px-3 py-2 border rounded"
                 value="{{ old('nom_en') }}" required>
@@ -40,9 +40,8 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-
         <!-- Description (FR) -->
-        <div>
+        <div class="ml-6 mr-6">
             <x-label for="description_fr" label="Description (Français)" />
             <textarea id="description_fr" name="description_fr" maxlength="500" class="w-full px-3 py-2 border rounded"
                 required>{{ old('description_fr') }}</textarea>
@@ -51,7 +50,7 @@
             @enderror
         </div>
         <!-- Description (EN) -->
-        <div>
+        <div class="ml-6 mr-6">
             <x-label for="description_en" label="Description (Anglais)" />
             <textarea id="description_en" name="description_en" maxlength="500" class="w-full px-3 py-2 border rounded"
                 required>{{ old('description_en') }}</textarea>
@@ -59,16 +58,15 @@
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-
         <!-- Image (URL) -->
-        <div>
-            <x-label for="image" label="URL de l’image)" />
+        <div class="ml-6 mr-6">
+            <x-label for="image" label="URL de l’image ordianteur" />
             <input type="text" id="image" name="image" maxlength="100" class="w-full px-3 py-2 border rounded"
                 value="{{ old('image') }}" required>
             @error('image')
                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-10">Enregistrer</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-10 mb-10 ml-6">Enregistrer</button>
     </form>
 </x-app-layout>

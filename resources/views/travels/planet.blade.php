@@ -7,8 +7,8 @@
         <section class="text-center 
     flex-1 flex flex-col justify-center items-center lg:flex-row px-4">
             <section class="relative w-full max-w-4xl">
-                <h2 class="text-[16px] leading-[19px] tracking-[2.7px] md:text-[20px] md:leading-[23px] md:tracking-[3.38px] 
-            lg:text-[28px] lg:leading-[33px] lg:tracking-[4.72] text-[var(--white-25)] 
+                <h2 class="text-(length:--titre5-mobile) leading-[19px] tracking-1 md:text-(length:--titre5-tablet) md:leading-[23px] md:tracking-3 
+            lg:text-(length:--titre5-desktop) lg:leading-[33px] lg:tracking-4 text-[var(--white-25)] 
             uppercase font-barlow 
             md:text-start mb-6 mt-24 m-16">
                     <span class="opacity-25">01</span> {{ __('messages.h2_planet') }}
@@ -33,7 +33,7 @@
                 <section>
                     <div class="max-w-xl w-full w-[337px] h-[54px] 
                 flex items-center justify-center m-5">
-                        <ul class="text-[14px] leading-[16px] tracking-[2.36px] md:text-[16px] md:leading-[19px] md:tracking-[2.7px] 
+                        <ul class="text-(length:--subtitle3-mobile) leading-[16px] tracking-2 md:text-(length:--subtitle2-tablet)] md:leading-[19px] md:tracking-1 
                     text-[var(--white-25)] uppercase whitespace-nowrap 
                     flex gap-6 mt-20">
                             <x-list_planet :planets="$planets" />
@@ -41,12 +41,12 @@
                         </ul>
                     </div>
                     <div class="max-w-xl w-full">
-                        <h1 class="text-[56px] leading-[64px] md:text-[80px] md:leading-[91px] lg:text-[100px] lg:leading-[114px] 
+                        <h1 class="text-(length:--titre2-mobile) leading-[64px] md:text-(length:--titre2-tablet) md:leading-[91px] lg:text-(length:--titre2-desktop)lg:leading-[114px] 
                     font-bellefair text-[var(--white-25)] uppercase  
                     mb-6">
                             {{ $planet->{'nom_' . app()->getLocale()}  }}
                         </h1>
-                        <p class="text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px] 
+                        <p class="text-(length:--text-mobile) leading-[25px] md:text-(length:--text-tablet) md:leading-[28px] lg:text-(length:--text-desktop) lg:leading-[32px] 
                     text-[var(--purple-25)] font-barlow whitespace-normal">
                             {{ $planet->{'description_' . app()->getLocale()} }}
                         </p>
@@ -62,11 +62,11 @@
                 <section class="md:flex md:flex-row md:justify-around">
                     <div class="max-w-xl md:w-[300px] 
                 mt-12 mb-12">
-                        <p class="text-[14px] leading-[16px] tracking-[2.36] 
+                        <p class="text-(length:--subtitle3-mobile) leading-[16px] tracking-2 
                     text-[var(--purple-25)] uppercase font-barlow">
                             {{ __('messages.distance') }}
                         </p>
-                        <h2 class="text-[28px] leading-[32px] 
+                        <h2 class="text-(length:--subtitle1-desktop) leading-[32px] 
                         text-[var(--white-25)] uppercase font-bellefair whitespace-nowrap">
                             {{ $planet->{'distance_' . app()->getLocale()} }}
                         </h2>
@@ -74,11 +74,11 @@
                     <div class="max-w-xl md:w-[300px] 
                 mt-12 mb-12 ">
                         <p
-                            class="uppercase text-[var(--purple-25)] text-[14px] leading-[16px] tracking-[2.36] font-barlow">
+                            class="uppercase text-[var(--purple-25)] text-(length:--subtitle3-mobile) leading-[16px] tracking-2 font-barlow">
                             {{ __('messages.duration') }}
                         </p>
                         <h3
-                            class="uppercase text-[var(--white-25)] text-[28px] leading-[32px] font-bellefair whitespace-nowrap">
+                            class="uppercase text-[var(--white-25)] text-(length:--subtitle1-desktop) leading-[32px] font-bellefair whitespace-nowrap">
                             {{ $planet->{'duree_' . app()->getLocale()} }}
                         </h3>
                     </div>
