@@ -40,14 +40,14 @@
                     text-[var(--purple-25)] font-barlow uppercase whitespace-nowrap 
                     mt-10 mb-5 md:mt-20 md:mb-10">
                         {{ __('messages.h3_tech') }}
+                        <span class="font-bold opacity-25">{{ str_pad($indexCount, 2, '0', STR_PAD_LEFT) }}</span>
                     </h3>
-                    <h1 class="text-(length:--titre3-mobile) leading-[27px] md:text-(length:--titre3-tablet) md-leading-[45px] lg:text-(length:--titre3-desktop) lg:leading-[64px] 
+                    <h1 class="text-(length:--titre3-mobile) leading-[27px] mid-screen-title md:text-(length:--titre3-tablet) md-leading-[45px] lg:text-(length:--titre3-desktop) lg:leading-[64px] 
                     text-[var(--white-25)] font-bellefair uppercase whitespace-nowrap 
                     mb-6">
-                    <span class="font-bold opacity-25">{{ str_pad($indexCount, 2, '0', STR_PAD_LEFT) }}</span>
                         {{ $technology->{'nom_' . app()->getLocale()} }}
                     </h1>
-                    <p class="text-(length:--text-mobile) leading-[25px] md:text-(length:--text-tablet) md:leading-[28px] lg:text-(length:--text-desktop) lg:leading-[32px] 
+                    <p class="text-(length:--text-mobile) leading-[25px] mid-screen-text md:text-(length:--text-tablet) md:leading-[28px] lg:text-(length:--text-desktop) lg:leading-[32px] 
                     text-[var(--purple-25)] font-barlow whitespace-normal 
                     lg:max-w-[clamp(300px,50vw,700px)] max-w-xl">
                         {{ $technology->{'description_' . app()->getLocale()} }}
