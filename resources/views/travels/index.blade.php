@@ -2,13 +2,13 @@
     <x-slot:bg>
         bg_space
     </x-slot:bg>
-    <main class="flex1">
-        <section class="flex flex-col justify-center items-center px-4 text-center lg:flex-row lg:justify-between">
+    <main class="pt-[10vh] flex1">
+        <section class="flex flex-col justify-center items-center px-4 text-center lg:text-start lg:flex-row lg:justify-around lg:ml-30px">
             <div class="max-w-xl w-full">
                 <h3 class="text-(length:--titre5-mobile) leading-[19px] tracking-2.7 md:text-(length:--titre5-tablet) md:leading-[23px] md:tracking-4.72 
         lg:text-(length:--titre5-desktop) lg:leading-[33px] lg:tracking-4.72 
         text-[var(--white-25)] font-barlow  uppercase whitespace-nowrap 
-        mb-6 m-16">
+        mb-6 m-16 lg:mb-0 lg:m-0">
                     {{ __('messages.h3_home') }}
                 </h3>
 
