@@ -48,7 +48,13 @@ class PlanetController extends Controller
     public function show(Planet $planet)
     {
         $planets = Planet::query()->orderBy('id')->get();
-        return view('travels.planet', compact('planet', 'planets'));
+
+        // Index réel de la technologie courante
+        $indexCount = $planets->search(function ($p) use ($planet) {
+            return $p->id === $planet->id;
+        }) + 1;
+
+        return view('travels.planet', compact('planet', 'planets', 'indexCount'));
     }
 
     /**

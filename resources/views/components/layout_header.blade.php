@@ -10,7 +10,7 @@
 </head>
 
 <body class="{{ $bg }} min-w-[349px] overflow-x-auto 
-font-normal h-[100vh]">
+font-normal">
     <header class="header 
     h-[10vh] px-5 xs:mr-5 
     flex items-center justify-between">

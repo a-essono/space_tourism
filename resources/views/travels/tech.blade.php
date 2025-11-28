@@ -7,17 +7,17 @@
         lg:text-(length:--titre5-desktop) lg:leading-[33px] lg:tracking-4 
         text-[var(--white-25)] font-barlow uppercase 
         text-center lg:text-start mb-6 m-16">
-            <span class="opacity-25">03</span> {{ __('messages.h2_tech') }}
+            <span class="opacity-25 font-bold">03</span> {{ __('messages.h2_tech') }}
         </h2>
         <section class="text-center 
-        flex flex-col  justify-center items-center lg:flex-row-reverse lg:justify-around ">
+        flex flex-col justify-center items-center lg:flex-row-reverse lg:justify-around ">
             <section class="w-full lg:w-auto">
-                <div class="relative overflow-hidden w-full 
+                <div class=" w-full 
                     h-[45vw] max-h-[170px]    
                     sm:h-[40vw] sm:max-h-[310px]  
                     lg:w-[35vw] lg:h-[40vw] lg:max-h-[527px]">
                     <img src="{{ $technology->image_url }}" alt="{{ $technology->{'nom_' . app()->getLocale()} }}"
-                        class="absolute inset-0 w-full h-full object-cover
+                        class=" inset-0 w-full h-full object-cover
                             object-[center_80%]
                             sm:object-[center_65%]
                             lg:object-center">
@@ -44,6 +44,7 @@
                     <h1 class="text-(length:--titre3-mobile) leading-[27px] md:text-(length:--titre3-tablet) md-leading-[45px] lg:text-(length:--titre3-desktop) lg:leading-[64px] 
                     text-[var(--white-25)] font-bellefair uppercase whitespace-nowrap 
                     mb-6">
+                    <span class="font-bold opacity-25">{{ str_pad($indexCount, 2, '0', STR_PAD_LEFT) }}</span>
                         {{ $technology->{'nom_' . app()->getLocale()} }}
                     </h1>
                     <p class="text-(length:--text-mobile) leading-[25px] md:text-(length:--text-tablet) md:leading-[28px] lg:text-(length:--text-desktop) lg:leading-[32px] 

@@ -49,9 +49,14 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-
         $technologies = Technology::query()->orderBy('id', )->get('id');
-        return view('travels.tech', compact('technology', 'technologies'));
+
+        // Index réel de la technologie courante
+    $indexCount = $technologies->search(function ($t) use ($technology) {
+        return $t->id === $technology->id;
+    }) + 1;
+
+        return view('travels.tech', compact('technology', 'technologies', 'indexCount'));
     }
 
     /**

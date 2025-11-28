@@ -50,7 +50,13 @@ class CrewController extends Controller
     public function show(Crew $crew)
     {
         $crews = Crew::query()->orderBy('id')->get('id');
-        return view('travels.crew', compact('crew', 'crews'));
+
+        // Index réel des membres d'équipages courante
+        $indexCount = $crews->search(function ($c) use ($crew) {
+            return $c->id === $crew->id;
+        }) + 1;
+
+        return view('travels.crew', compact('crew', 'crews', 'indexCount'));
     }
 
     /**

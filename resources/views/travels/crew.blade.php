@@ -45,6 +45,7 @@
                 <div class="">
                     <h1 class="text-(length:--titre5-mobile) leading-[18px] md:text-(length:--titre5-tablet) md:leading-[27px] lg:text-(length:--titre5-desktop) lg:leading-[36px] 
                         font-bellefair  uppercase text-[var(--gray-25)] mb-3 ">
+                        <span class="font-bold opacity-25">{{ str_pad($indexCount, 2, '0', STR_PAD_LEFT) }}</span>
                         {{ $crew->{'role_' . app()->getLocale()} }}
                     </h1>
                     <h2 class="text-(length:--titre3-mobile) leading-[27px] md:text-(length:--titre3-tablet) md:leading-[45px] lg:text-(length:--titre3-desktop) lg:leading-[64px] 
